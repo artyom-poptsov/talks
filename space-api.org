@@ -1,0 +1,132 @@
+#+TITLE:       Space API
+#+AUTHOR:      Артём Попцов
+#+EMAIL:       poptsov.artyom@gmail.com
+#+LANGUAGE:    russian
+#+OPTIONS:     H:3 num:t toc:1 \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:     TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT:  view:nil toc:1 ltoc:t mouse:underline buttons:0
+#+INFOJS_OPT:  path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS:  export
+#+EXPORT_EXCLUDE_TAGS: noexport
+
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+LATEX_CLASS_OPTIONS: [presentation]
+#+LaTeX_HEADER: \usepackage[english, russian]{babel}
+#+BEAMER_FRAME_LEVEL: 3
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) 
+#+COLUMNS: %4BEAMER_COL(Col) %10BEAMER_extra(Extra)
+
+#+latex_header: \usepackage[labelformat=empty]{caption}
+
+* Что такое Space API?
+** Что такое Space API?
+*** Что такое Space API?
+    - Представление информации о хакерспейсе в унифицированном виде.
+**** Block                                                            :BMCOL:
+     :PROPERTIES:
+     :BEAMER_col: 0.5
+     :END:
+     #+ATTR_LATEX: clip,height=0.5\textheight
+     [[file:./graphics/spaceapi-logo.png]]
+*** Какого рода информация может публиковаться?
+    - Название хакерспейса
+    - Расположение
+    - Контактная информация
+    - *Статус*
+    - Информация с датчиков
+      - Температура, освещённость, влажность, ...
+      - Потребление электроэнергии
+      - Количество участников
+      - Количество денег на счету  :-)
+      - ...
+*** Как информация может быть использована?
+    - [[http://spaceapi.net/app][spaceapi.net/app]]:
+      - MyHackerspace для Android
+      - Gnome Shell Extension
+      - Hackerspace Globe
+      - ...
+    - Ещё идеи?  :-)
+* Как работает Space API?
+** Как работает Space API?
+*** Как работает Space API?
+     #+ATTR_LATEX: width=0.1\textwidth
+     [[file:./graphics/space-api-architecture.png]]
+*** Каталог хакерспейсов
+    [[http://spaceapi.net/directory.json][spaceapi.net/directory.json]]:
+#+BEGIN_EXAMPLE javascript
+{
+  "brmlab":"http:\/\/spaceapi.net\/cache\/brmlab",
+  "CCCFr":"http:\/\/spaceapi.net\/cache\/CCCFr",
+  "Chaos inKL.":"http:\/\/spaceapi.net\/cache\/Chaos+inKL.",
+  "CSSA Common Room":"http:\/\/spaceapi.net\/cache\/CSSA+Common+Room",
+  "DevLoL":"http:\/\/spaceapi.net\/cache\/DevLoL",
+[...]
+#+END_EXAMPLE
+*** Информация о хакерспейсе
+    [[http://cadrspace.ru/status/json][cadrspace.ru/status/json]]:
+#+BEGIN_EXAMPLE javascript
+{
+  "api":"0.13",
+  "space":"CADR",
+  "logo":"http:\/\/cadrspace.ru\/w\/...",
+  "url":"http:\/\/cadrspace.ru",
+  "location": {
+    "address":"aud. 054, b. 6, Studentcheskaya st., ...",
+    "lon":43.988235,
+    "lat":56.302663 },
+[...]
+#+END_EXAMPLE
+* Кто использует Space API?
+** Кто использует Space API?
+*** Кто использует Space API?
+    - Хакерспейсы  :-)
+    - ~142 хакерспейса (на [2015-03-05 Чт]) в каталоге:
+#+LATEX: \fontsize{8}{10}
+#+BEGIN_QUOTE
+57NorthHacklab, AceMonsterToys, ACKspace, Apollo-NG,
+AttraktorMakerspace, AwesomeSpace, backspace, base48, Bastli,
+BinarySpace, Bitlair, Breizh-Entropy, brmlab, Bytespeicher, bytewerk,
+C3D2GCHQ, *CADR*, c-base, CCCFr, CCCHamburg, ChaosDarmstadt,
+Chaosdorf, ChaosinKL., chaospott, Chaospott, ChaostreffChemnitz,
+coredump, CSSACommonRoom, DevLoL, /dev/tal, Dingfabrik,
+DlabsHackerspace, E5, EdinburghHacklab, EigenbaukombinatHallee.V.,
+EmbassyofNerdistan, Entropia, Estação H4ck3r, FAUFabLab, FIXME, Frack,
+FreiesLabor, Freiraum, GaroaHackerClube, GeekLabs,
+GothemburgHackerspace, HacDC, H.A.C.K., Hack42, Hackburg, Hackeriet,
+HackerspaceBielefelde.V., HackerspaceBremene.V., Hackerspace.gr,
+HackerspaceKRK, HackerspacePardubice, Hackerspace.sg, HackLabAsu,
+Hacksaar, Hacksburg, HackspaceManchester, HackspaceSiegen,
+HeatSyncLabs, Hickerspace, Hive13, [hsmr], HSMTY,
+HTUGraz-BasisgruppeInformatik, HTUGraz-BasisgruppeTelematik,
+IT-Syndikat, JeanneD'Hack, Krautspace, LaboratorioHackerdeCampinas,
+LAG, LambaLabs, LeedsHackspace, LeLoop, Level2, LondonHackspace,
+Mainframe, MakeHackVoidCanberra, MakersLocal256, Maschinendeck,
+Maschinenraum, MechArtLab, MelbourneMakerspace, MetaMeute,
+MidsouthMakers, miLKlabs, ...
+#+END_QUOTE
+#+LATEX: \normalize
+
+*** Спасибо за внимание!
+    - Нижегородский хакерспейс CADR: [[http://cadrspace.ru/][cadrspace.ru]]
+    - Эл. почта: <poptsov.artyom@gmail.com> \\
+      \\
+**** Block                                                            :BMCOL:
+     :PROPERTIES:
+     :BEAMER_col: 0.5
+     :END:
+#+LATEX: \fontsize{32}{36}
+#+BEGIN_EXAMPLE
+                         Вопросы?
+#+END_EXAMPLE
+#+LATEX: \normalize
+*** Информация о презентации
+    Copyright (C) 2015 Artyom V. Poptsov <poptsov.artyom@gmail.com>
+
+    This work is licensed under terms of Attribution-ShareAlike 4.0 International
+    
+
+# Local Variables:
+#   org-beamer-outline-frame-title: "Содержание"
+# End:
