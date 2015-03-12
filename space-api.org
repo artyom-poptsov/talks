@@ -2,7 +2,7 @@
 #+AUTHOR:      Артём Попцов
 #+EMAIL:       poptsov.artyom@gmail.com
 #+LANGUAGE:    russian
-#+OPTIONS:     H:3 num:t toc:1 \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:     H:2 num:t toc:1 \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:     TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+INFOJS_OPT:  view:nil toc:1 ltoc:t mouse:underline buttons:0
 #+INFOJS_OPT:  path:http://orgmode.org/org-info.js
@@ -15,7 +15,7 @@
 #+LATEX_CLASS_OPTIONS: [presentation]
 #+BEAMER_THEME: Rochester [height=20pt]
 #+LaTeX_HEADER: \usepackage[english, russian]{babel}
-#+BEAMER_FRAME_LEVEL: 3
+#+BEAMER_FRAME_LEVEL: 2
 #+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) 
 #+COLUMNS: %4BEAMER_COL(Col) %10BEAMER_extra(Extra)
 
@@ -23,23 +23,22 @@
 
 * Что такое Space API?
 ** Что такое Space API?
-*** Что такое Space API?
-    Давным-давно, в далёкой-далёкой галактике под названием Млечный
-    Путь...
-    #+ATTR_LATEX: clip,height=0.5\textheight
-    [[file:./graphics/space.jpg]]
-*** Что такое Space API?
-    #+ATTR_LATEX: clip,height=0.5\textheight
-    [[file:./graphics/1280px-ESO-VLT-Laser-phot-33a-07.jpg]]
+   Давным-давно, в далёкой-далёкой галактике под названием Млечный
+   Путь...
+   #+ATTR_LATEX: clip,height=0.5\textheight
+   [[file:./graphics/space.jpg]]
+** Что такое Space API?
+   #+ATTR_LATEX: clip,height=0.5\textheight
+   [[file:./graphics/1280px-ESO-VLT-Laser-phot-33a-07.jpg]]
 
-    ...хакеры придумали способ обмениваться информацией о статусе
-    любимых хакерспейсов...
-*** Что такое Space API?
+   ...хакеры придумали способ обмениваться информацией о статусе
+   любимых хакерспейсов...
+** Что такое Space API?
     #+ATTR_LATEX: clip,height=0.5\textheight
     [[file:./graphics/space-api-in-space.jpg]]
 
     ...так был создан *Space API*
-*** Что такое Space API?
+** Что такое Space API?
     1. Сервис, предоставляющий возможность хакерспейсам публиковать
        информацию о своём статусе
     2. Способ получения информации о хакерспейсах в унифицированном
@@ -50,7 +49,7 @@
      :END:
      #+ATTR_LATEX: clip,height=0.5\textheight
      [[file:./graphics/spaceapi-logo.png]]
-*** Какого рода информация может публиковаться?
+** Какого рода информация может публиковаться?
     - Название хакерспейса
     - Расположение
     - Контактная информация
@@ -61,7 +60,7 @@
       - Количество участников
       - Количество денег на счету  :-)
       - ...
-*** Как информация может быть использована?
+** Как информация может быть использована?
     - [[http://spaceapi.net/app][spaceapi.net/app]]:
       - MyHackerspace для Android
       - Gnome Shell Extension
@@ -70,11 +69,10 @@
     - Ещё идеи?  :-)
 * Как работает Space API?
 ** Как работает Space API?
-*** Как работает Space API?
-     #+ATTR_LATEX: width=0.1\textwidth
-     [[file:./graphics/space-api-architecture.png]]
-*** Каталог хакерспейсов
-    [[http://spaceapi.net/directory.json][spaceapi.net/directory.json]]:
+   #+ATTR_LATEX: width=0.1\textwidth
+   [[file:./graphics/space-api-architecture.png]]
+** Каталог хакерспейсов
+   [[http://spaceapi.net/directory.json][spaceapi.net/directory.json]]:
 #+BEGIN_EXAMPLE javascript
 {
   "brmlab":"http:\/\/spaceapi.net\/cache\/brmlab",
@@ -84,8 +82,8 @@
   "DevLoL":"http:\/\/spaceapi.net\/cache\/DevLoL",
 [...]
 #+END_EXAMPLE
-*** Информация о хакерспейсе
-    [[http://cadrspace.ru/status/json][cadrspace.ru/status/json]]:
+** Информация о хакерспейсе
+   [[http://cadrspace.ru/status/json][cadrspace.ru/status/json]]:
 #+BEGIN_EXAMPLE javascript
 {
   "api":"0.13",
@@ -100,7 +98,6 @@
 #+END_EXAMPLE
 * Кто использует Space API?
 ** Кто использует Space API?
-*** Кто использует Space API?
     - Хакерспейсы  :-)
     - ~142 хакерспейса (на [2015-03-05 Чт]) в каталоге:
 #+LATEX: \fontsize{8}{10}
@@ -128,7 +125,7 @@ MidsouthMakers, miLKlabs, ...
 #+END_QUOTE
 #+LATEX: \normalize
 
-*** Спасибо за внимание!
+** Спасибо за внимание!
     - Нижегородский хакерспейс CADR: [[http://cadrspace.ru/][cadrspace.ru]]
     - Эл. почта: <poptsov.artyom@gmail.com> \\
       \\
@@ -141,7 +138,7 @@ MidsouthMakers, miLKlabs, ...
 Вопросы?
 #+END_CENTER
 #+LATEX: \normalize
-*** Информация о презентации
+** Информация о презентации
     Copyright (C) 2015 Artyom V. Poptsov <poptsov.artyom@gmail.com>
 
     This work is licensed under terms of Attribution-ShareAlike 4.0 International
