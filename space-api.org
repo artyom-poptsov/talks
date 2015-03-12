@@ -71,6 +71,14 @@
 ** Как работает Space API?
    #+ATTR_LATEX: width=0.1\textwidth
    [[file:./graphics/space-api-architecture.png]]
+** Создание endpoint'а
+    С использованием собственного сервера:
+    - Web-сервер
+    - Скрипт, генерирующий JSON нужного формата
+    - Скрипт(ы) для обновления данных endpoint'а \newline
+      \newline
+    С использованием мощностей spaceapi.net:
+    - Скрипт(ы) для обновления данных endpoint'а
 ** Каталог хакерспейсов
    [[http://spaceapi.net/directory.json][spaceapi.net/directory.json]]:
 #+BEGIN_EXAMPLE javascript
