@@ -24,7 +24,26 @@
 * Что такое Space API?
 ** Что такое Space API?
 *** Что такое Space API?
-    - Представление информации о хакерспейсе в унифицированном виде.
+    Давным-давно, в далёкой-далёкой галактике под названием Млечный
+    Путь...
+    #+ATTR_LATEX: clip,height=0.5\textheight
+    [[file:./graphics/space.jpg]]
+*** Что такое Space API?
+    #+ATTR_LATEX: clip,height=0.5\textheight
+    [[file:./graphics/1280px-ESO-VLT-Laser-phot-33a-07.jpg]]
+
+    ...хакеры придумали способ обмениваться информацией о статусе
+    любимых хакерспейсов...
+*** Что такое Space API?
+    #+ATTR_LATEX: clip,height=0.5\textheight
+    [[file:./graphics/space-api-in-space.jpg]]
+
+    ...так был создан *Space API*
+*** Что такое Space API?
+    1. Сервис, предоставляющий возможность хакерспейсам публиковать
+       информацию о своём статусе
+    2. Способ получения информации о хакерспейсах в унифицированном
+       виде
 **** Block                                                            :BMCOL:
      :PROPERTIES:
      :BEAMER_col: 0.5
@@ -118,15 +137,14 @@ MidsouthMakers, miLKlabs, ...
      :BEAMER_col: 0.5
      :END:
 #+LATEX: \fontsize{32}{36}
-#+BEGIN_EXAMPLE
-                         Вопросы?
-#+END_EXAMPLE
+#+BEGIN_CENTER
+Вопросы?
+#+END_CENTER
 #+LATEX: \normalize
 *** Информация о презентации
     Copyright (C) 2015 Artyom V. Poptsov <poptsov.artyom@gmail.com>
 
     This work is licensed under terms of Attribution-ShareAlike 4.0 International
-    
 
 # Local Variables:
 #   org-beamer-outline-frame-title: "Содержание"
