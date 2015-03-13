@@ -141,7 +141,7 @@
 [...]
 #+END_EXAMPLE
 ** Информация о хакерспейсе
-   [[http://cadrspace.ru/status/json][cadrspace.ru/status/json]]:
+   [[http://cadrspace.ru/status/json][cadrspace.ru/status/json]] :
 #+BEGIN_EXAMPLE javascript
 {
   "api":"0.13",
