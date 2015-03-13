@@ -97,6 +97,10 @@
     :END:
    #+ATTR_LATEX: width=0.1\textwidth
    [[file:./graphics/myhackerspace.png]]
+** Как информация может быть использована?
+   #+CAPTION: Hackerspace Globe
+   #+ATTR_LATEX: width=0.1\textwidth
+   [[file:./graphics/hackerspace-globe.png]]
 * Как работает Space API?
 ** Как работает Space API?
    #+ATTR_LATEX: width=0.1\textwidth
