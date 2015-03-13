@@ -94,13 +94,13 @@
     С использованием мощностей spaceapi.net:
     - Скрипт(ы) для обновления данных endpoint'а
 ** Каталог хакерспейсов
-   [[http://spaceapi.net/directory.json][spaceapi.net/directory.json]]:
+   [[http://spaceapi.net/directory.json][spaceapi.net/directory.json]] :
 #+BEGIN_EXAMPLE javascript
 {
   "brmlab":"http:\/\/spaceapi.net\/cache\/brmlab",
   "CCCFr":"http:\/\/spaceapi.net\/cache\/CCCFr",
-  "Chaos inKL.":"http:\/\/spaceapi.net\/cache\/Chaos+inKL.",
-  "CSSA Common Room":"http:\/\/spaceapi.net\/cache\/CSSA+Common+Room",
+  "Chaos inKL.":"http:\/\/spaceapi.net\/cache\/...",
+  "CSSA Common Room":"http:\/\/spaceapi.net\/cache...",
   "DevLoL":"http:\/\/spaceapi.net\/cache\/DevLoL",
 [...]
 #+END_EXAMPLE
