@@ -15,6 +15,7 @@
 #+LATEX_CLASS_OPTIONS: [presentation]
 #+BEAMER_THEME: Rochester [height=20pt]
 #+LaTeX_HEADER: \usepackage[english, russian]{babel}
+#+LaTeX_HEADER: \subtitle{Децентрализованная информационная система для хакерспейсов}
 #+BEAMER_FRAME_LEVEL: 2
 #+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) 
 #+COLUMNS: %4BEAMER_COL(Col) %10BEAMER_extra(Extra)
