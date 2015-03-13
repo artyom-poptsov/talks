@@ -178,13 +178,13 @@ MidsouthMakers, miLKlabs, ...
 
 ** Спасибо за внимание!
     - Нижегородский хакерспейс CADR: [[http://cadrspace.ru/][cadrspace.ru]]
-    - Эл. почта: <poptsov.artyom@gmail.com> \\
-      \\
+    - Эл. почта: <poptsov.artyom@gmail.com> \newline
+      \newline
 **** Block                                                            :BMCOL:
      :PROPERTIES:
      :BEAMER_col: 0.5
      :END:
-#+LATEX: \fontsize{32}{36}
+#+LATEX: \Huge
 #+BEGIN_CENTER
 Вопросы?
 #+END_CENTER
