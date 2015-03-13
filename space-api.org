@@ -92,14 +92,15 @@
       \newline
       Что нужно:
       - Web-сервер
-      - Скрипт, генерирующий JSON нужного формата
+      - Скрипт, генерирующий JSON нужного формата \newline
+        (к примеру, [[https://github.com/SpaceApi/endpoint-scripts][github.com/SpaceApi/endpoint-scripts]])
       - Скрипт(ы) для обновления данных endpoint'а \newline
       \newline
       Регистрация:
       - [[https://example.ru/status.json][example.ru/status.json]] \Rightarrow [[http://spaceapi.net/add-your-space][spaceapi.net/add-your-space]] \newline
       \newline
 
-   2. С использованием мощностей spaceapi.net \newline
+   2. С использованием хостинга spaceapi.net \newline
       \newline
       Что нужно:
       - Скрипт(ы) для обновления данных endpoint'а \newline
