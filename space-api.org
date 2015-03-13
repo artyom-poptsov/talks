@@ -158,6 +158,9 @@ Maschinenraum, MechArtLab, MelbourneMakerspace, MetaMeute,
 MidsouthMakers, miLKlabs, ...
 #+END_QUOTE
 #+LATEX: \normalize
+** Использование Space API в CADR'е
+   #+ATTR_LATEX: width=0.5\textwidth
+   [[file:./graphics/cadr-spaceapi-update.png]]
 ** Спасибо за внимание!
     - Нижегородский хакерспейс CADR: [[http://cadrspace.ru/][cadrspace.ru]]
     - Эл. почта: <poptsov.artyom@gmail.com> \\
