@@ -81,15 +81,16 @@
     :PROPERTIES:
     :BEAMER_col: 0.5
     :END:
-    - [[http://spaceapi.net/app][spaceapi.net/app]]
-      - MyHackerspace для Android
-      - Gnome Shell Extension
-      - Hackerspace Globe
-      - Space API Statistics
-      - SpaceAPI for OS X
-      - Hacker's OpenSpace
-      - ...
-    - Ещё идеи?  :-)
+    Примеры приложений:
+    - MyHackerspace для Android
+    - Gnome Shell Extension
+    - Hackerspace Globe
+    - Space API Statistics
+    - SpaceAPI for OS X
+    - Hacker's OpenSpace
+    - /(здесь могла быть реклама вашего Space API приложения)/ \newline
+    \newline
+    Каталог приложений: [[http://spaceapi.net/app][spaceapi.net/app]]
 *** Block                                                             :BMCOL:
     :PROPERTIES:
     :BEAMER_col: 0.5
