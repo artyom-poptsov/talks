@@ -103,8 +103,11 @@
    [[file:./graphics/hackerspace-globe.png]]
 * Как работает Space API?
 ** Как работает Space API?
+   #+CAPTION: Архитектура
    #+ATTR_LATEX: width=0.1\textwidth
    [[file:./graphics/space-api-architecture.png]]
+   \newline
+   - endpoint :: Ресурс, предоставляющий информацию о хакерспейсе
 ** Создание и регистрация endpoint'а
    1. С использованием собственного сервера
       \newline
