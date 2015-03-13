@@ -85,14 +85,26 @@
 ** Как работает Space API?
    #+ATTR_LATEX: width=0.1\textwidth
    [[file:./graphics/space-api-architecture.png]]
-** Создание endpoint'а
-    С использованием собственного сервера:
-    - Web-сервер
-    - Скрипт, генерирующий JSON нужного формата
-    - Скрипт(ы) для обновления данных endpoint'а \newline
+** Создание и регистрация endpoint'а
+   1. С использованием собственного сервера
       \newline
-    С использованием мощностей spaceapi.net:
-    - Скрипт(ы) для обновления данных endpoint'а
+      \newline
+      Что нужно:
+      - Web-сервер
+      - Скрипт, генерирующий JSON нужного формата
+      - Скрипт(ы) для обновления данных endpoint'а \newline
+      \newline
+      Регистрация:
+      - [[https://example.ru/status.json][example.ru/status.json]] \rarrow [[http://spaceapi.net/add-your-space][spaceapi.net/add-your-space]] \newline
+      \newline
+
+   2. С использованием мощностей spaceapi.net \newline
+      \newline
+      Что нужно:
+      - Скрипт(ы) для обновления данных endpoint'а \newline
+      \newline
+      Регистрация:
+      - [[http://spaceapi.net/new/][spaceapi.net/new]]
 ** Каталог хакерспейсов
    [[http://spaceapi.net/directory.json][spaceapi.net/directory.json]] :
 #+BEGIN_EXAMPLE javascript
@@ -146,7 +158,6 @@ Maschinenraum, MechArtLab, MelbourneMakerspace, MetaMeute,
 MidsouthMakers, miLKlabs, ...
 #+END_QUOTE
 #+LATEX: \normalize
-
 ** Спасибо за внимание!
     - Нижегородский хакерспейс CADR: [[http://cadrspace.ru/][cadrspace.ru]]
     - Эл. почта: <poptsov.artyom@gmail.com> \\
