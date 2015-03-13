@@ -62,12 +62,25 @@
       - Количество денег на счету  :-)
       - ...
 ** Как информация может быть использована?
-    - [[http://spaceapi.net/app][spaceapi.net/app]]:
+*** Block                                                             :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.5
+    :END:
+    - [[http://spaceapi.net/app][spaceapi.net/app]]
       - MyHackerspace для Android
       - Gnome Shell Extension
       - Hackerspace Globe
+      - Space API Statistics
+      - SpaceAPI for OS X
+      - Hacker's OpenSpace
       - ...
     - Ещё идеи?  :-)
+*** Block                                                             :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.5
+    :END:
+   #+ATTR_LATEX: width=0.1\textwidth
+   [[file:./graphics/myhackerspace.png]]
 * Как работает Space API?
 ** Как работает Space API?
    #+ATTR_LATEX: width=0.1\textwidth
