@@ -95,7 +95,7 @@
       - Скрипт(ы) для обновления данных endpoint'а \newline
       \newline
       Регистрация:
-      - [[https://example.ru/status.json][example.ru/status.json]] \rarrow [[http://spaceapi.net/add-your-space][spaceapi.net/add-your-space]] \newline
+      - [[https://example.ru/status.json][example.ru/status.json]] \Rightarrow [[http://spaceapi.net/add-your-space][spaceapi.net/add-your-space]] \newline
       \newline
 
    2. С использованием мощностей spaceapi.net \newline
