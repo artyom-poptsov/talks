@@ -190,6 +190,7 @@ MidsouthMakers, miLKlabs, ...
 #+END_CENTER
 #+LATEX: \normalize
 ** Информация о презентации
+#+LaTeX: \small
    Copyright \textcopyright 2015 Artyom V. Poptsov <poptsov.artyom@gmail.com> \newline
    \newline
    This work is licensed under terms of Attribution-ShareAlike 4.0 International
