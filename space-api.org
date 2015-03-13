@@ -190,9 +190,9 @@ MidsouthMakers, miLKlabs, ...
 #+END_CENTER
 #+LATEX: \normalize
 ** Информация о презентации
-    Copyright (C) 2015 Artyom V. Poptsov <poptsov.artyom@gmail.com>
-
-    This work is licensed under terms of Attribution-ShareAlike 4.0 International
+   Copyright \textcopyright 2015 Artyom V. Poptsov <poptsov.artyom@gmail.com> \newline
+   \newline
+   This work is licensed under terms of Attribution-ShareAlike 4.0 International
 
 # Local Variables:
 #   org-beamer-outline-frame-title: "Содержание"
