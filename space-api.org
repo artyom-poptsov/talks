@@ -163,6 +163,28 @@ MidsouthMakers, miLKlabs, ...
 ** Использование Space API в CADR'е
    #+ATTR_LATEX: width=0.5\textwidth
    [[file:./graphics/cadr-spaceapi-update.png]]
+\newline
+*** Block                                                             :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.1
+    :END:
+   #+ATTR_LATEX: width=0.5\textwidth
+   [[file:./graphics/cadr.png]]
+*** Block                                                             :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+#+LaTeX: \footnotesize
+    Наш статус: \newline
+    [[http://cadrspace.ru/status][cadrspace.ru/status]] \newline
+    [[http://cadrspace.ru/status/json][cadrspace.ru/status/json]]
+*** Block                                                             :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.5
+    :END:
+#+LaTeX: \footnotesize
+    Исходники endpoint'а: \newline
+    [[https://github.com/cadrspace/endpoint-scripts][github.com/cadrspace/endpoint-scripts]] \newline
 ** Бонус: Awesome Space Widget
    #+ATTR_LATEX: width=0.5\textwidth
    [[file:./graphics/awesome-space-info.png]]
