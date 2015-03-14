@@ -245,6 +245,11 @@ MidsouthMakers, miLKlabs, ...
 #+BEGIN_CENTER
 Вопросы?
 #+END_CENTER
+** Использованные материалы
+\small
+   - [[https://commons.wikimedia.org/wiki/File:ESO-VLT-Laser-phot-33a-07.jpg][commons.wikimedia.org/wiki/File:ESO-VLT-Laser-phot-33a-07.jpg]] (CC-BY 3.0)
+   - Логотип Space API: [[http://spaceapi.net/c/images/spaceapi-logo.png][spaceapi.net/c/images/spaceapi-logo.png]]
+   - Lisp Alien, автор Conrad Barski: [[http://www.lisperati.com/logo.html][lisperati.com/logo.html]] (PD)
 ** Информация о презентации
 #+LaTeX: \small
    Copyright \textcopyright 2015 Artyom V. Poptsov <poptsov.artyom@gmail.com> \newline
