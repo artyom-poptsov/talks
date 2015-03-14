@@ -45,13 +45,18 @@
     1. Сервис, предоставляющий возможность хакерспейсам публиковать
        информацию о себе
     2. Унифицированный способ обмена информацией между хакерспейсами и
-       пользователями
+       пользователями \newline
 **** Block                                                            :BMCOL:
      :PROPERTIES:
      :BEAMER_col: 0.5
      :END:
      #+ATTR_LATEX: clip,height=0.5\textheight
      [[file:./graphics/spaceapi-logo.png]]
+\Huge
+#+BEGIN_CENTER
+[[http://spaceapi.net/][spaceapi.net]]
+#+END_CENTER
+\normalsize
 ** Какого рода информация может публиковаться?
     Для версии Space API 0.13:
     - =api= -- Версия Space API
