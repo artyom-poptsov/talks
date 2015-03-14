@@ -226,6 +226,13 @@ MidsouthMakers, miLKlabs, ...
 #+LaTeX: \footnotesize
     Исходники endpoint'а: \newline
     [[https://github.com/cadrspace/endpoint-scripts][github.com/cadrspace/endpoint-scripts]] \newline
+** Использование Space API в CADR'е
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1\linewidth]{./graphics/cadr-status.png}
+\caption{Инновационный способ отображения статуса хакерспейса}
+(источник: cadrspace.ru/status)
+\end{figure}
 ** Спасибо за внимание!
     - Нижегородский хакерспейс CADR: [[http://cadrspace.ru/][cadrspace.ru]]
     - Эл. почта: <poptsov.artyom@gmail.com> \newline
