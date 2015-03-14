@@ -15,6 +15,7 @@
 #+LATEX_CLASS_OPTIONS: [presentation]
 #+BEAMER_THEME: Rochester [height=20pt]
 #+LaTeX_HEADER: \usepackage[english, russian]{babel}
+#+LaTeX_HEADER: \usepackage{marvosym}
 #+LaTeX_HEADER: \subtitle{Децентрализованная информационная система для хакерспейсов}
 #+BEAMER_FRAME_LEVEL: 2
 #+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) 
@@ -98,9 +99,27 @@
    #+ATTR_LATEX: width=0.1\textwidth
    [[file:./graphics/myhackerspace.png]]
 ** Как информация может быть использована?
-   #+CAPTION: Hackerspace Globe
-   #+ATTR_LATEX: width=0.1\textwidth
-   [[file:./graphics/hackerspace-globe.png]]
+#+BEGIN_LaTeX
+\begin{figure}[htb]
+\centering
+\includegraphics[width=.8\linewidth]{./graphics/hackerspace-globe.png}
+\caption{Space API + WebGL Globe + \Lightning \hspace{0.1cm} = \hspace{0.1cm} \textbf{Hackerspace Globe}}
+\texttt{github.com/joewalnes/hackerspace-globe}
+\end{figure}
+#+END_LaTeX
+** Как информация может быть использована?
+   #+CAPTION: Space API + Awesome + \Lightning \hspace{0.1cm} = \hspace{0.1cm}
+   #+CAPTION: *Awesome Space Widget*
+   #+ATTR_LATEX: width=0.5\textwidth
+   [[file:./graphics/awesome-space-info.png]]
+
+   - Виджет для Awesome TWM, отображающий статус выбранного
+     хакерспейса
+   - Версия 0.1.0 написана на Lua примерно за 3 дня
+   - Лицензия GNU GPL v3+ \newline
+#+BEGIN_CENTER
+    =github.com/artyom-poptsov/awesome_space=
+#+END_CENTER
 * Как работает Space API?
 ** Как работает Space API?
    #+CAPTION: Архитектура
@@ -181,11 +200,11 @@ Mainframe, MakeHackVoidCanberra, MakersLocal256, Maschinendeck,
 Maschinenraum, MechArtLab, MelbourneMakerspace, MetaMeute,
 MidsouthMakers, miLKlabs, ...
 #+END_QUOTE
-#+LATEX: \normalize
 ** Использование Space API в CADR'е
    #+ATTR_LATEX: width=0.5\textwidth
    [[file:./graphics/cadr-spaceapi-update.png]]
 \newline
+
 *** Block                                                             :BMCOL:
     :PROPERTIES:
     :BEAMER_col: 0.1
@@ -207,19 +226,6 @@ MidsouthMakers, miLKlabs, ...
 #+LaTeX: \footnotesize
     Исходники endpoint'а: \newline
     [[https://github.com/cadrspace/endpoint-scripts][github.com/cadrspace/endpoint-scripts]] \newline
-** Бонус: Awesome Space Widget
-   #+ATTR_LATEX: width=0.5\textwidth
-   [[file:./graphics/awesome-space-info.png]]
-
-   - Виджет для Awesome TWM, отображающий статус выбранного
-     хакерспейса
-   - Версия 0.1.0 написана на Lua примерно за 3 дня
-   - GPL v3+ \newline
-
-#+BEGIN_CENTER
-    =github.com/artyom-poptsov/awesome_space=
-#+END_CENTER
-
 ** Спасибо за внимание!
     - Нижегородский хакерспейс CADR: [[http://cadrspace.ru/][cadrspace.ru]]
     - Эл. почта: <poptsov.artyom@gmail.com> \newline
@@ -232,7 +238,6 @@ MidsouthMakers, miLKlabs, ...
 #+BEGIN_CENTER
 Вопросы?
 #+END_CENTER
-#+LATEX: \normalize
 ** Информация о презентации
 #+LaTeX: \small
    Copyright \textcopyright 2015 Artyom V. Poptsov <poptsov.artyom@gmail.com> \newline
