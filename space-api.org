@@ -259,7 +259,10 @@ MidsouthMakers, miLKlabs, ...
 #+LaTeX: \small
    Copyright \textcopyright 2015 Artyom V. Poptsov <poptsov.artyom@gmail.com> \newline
    \newline
-   This work is licensed under terms of Attribution-ShareAlike 4.0 International
+
+   This work is licensed under terms of Creative Commons
+   Attribution-ShareAlike 4.0 International:
+   https://creativecommons.org/licenses/by-sa/4.0/
 
 # Local Variables:
 #   org-beamer-outline-frame-title: "Содержание"
