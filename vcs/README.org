@@ -1,0 +1,62 @@
+* Введение в системы управления версиями
+  Вводная лекция по системам управления версиями.  Последняя
+  "стабильная" версия презентации находится в файле =lection0.pdf=.
+
+** "Компиляция" презентации
+   Презентация написана в LaTeX, для генерации PDF-документа из LaTeX
+   используется утилита =pdflatex=.  Для упрощения конвертации
+   подготовлен Makefile; таким образом, при наличии данной утилиты и
+   необходимых пакетов LaTeX, вы можете запустить генерацию
+   PDF-документа командой =make=, перейдя в каталог с проектом.
+
+** Использованные материалы
+   Ниже представлен список материалов, использованных в данной
+   презентации.  В скобках после ссылки на работу указана её лицензия.
+
+   - =cat-on-branches.jpg= -- Dwight Sipler, "You know, I think the
+     large trees are easier. (411955683)",
+     <https://www.flickr.com/photos/photofarmer/411955683/> (CC-BY
+     2.0)
+   - =youngkitten.jpg= -- That Guy, From That Show!,
+     <https://commons.wikimedia.org/wiki/File:Youngkitten.JPG> (PD)
+   - =scottish-kitten.png= -- RN3DLL, "Scottish Kitten",
+     <https://commons.wikimedia.org/wiki/File:Scottish_Kitten.png>
+     (CC-BY 3.0)
+   - =scurred.jpg= -- ColKorn1982, "Scurred",
+     <https://commons.wikimedia.org/wiki/File:Scurred.jpg> (CC-BY-SA
+     2.0)
+   - =cat-hiding.jpg= -- Mark, "iz my hiding place...",
+     <https://commons.wikimedia.org/wiki/File:Cat_hiding.jpg> (CC-BY
+     2.0)
+   - =packing-for-a-trip.jpg= -- Dwight Sipler, "Packing for a trip",
+     <https://commons.wikimedia.org/wiki/File:Packing_for_a_trip_%28302328043%29.jpg>
+     (CC-BY 2.0)
+   - =kitty-meowing.jpg= -- Algėrds, "Kitty meowing",
+     <https://commons.wikimedia.org/wiki/File:Kitty_meowing.jpg>
+     (CC-BY-SA 3.0)
+   - =chizhik.jpg= -- Pagedelete, "Chizhik",
+     <https://commons.wikimedia.org/wiki/File:Chizhik.jpg> (CC-BY-SA
+     3.0)
+   - =blue-eyed-kitten.jpg= -- Karin Dalziel, "Blue-eyed kitten",
+     <https://commons.wikimedia.org/wiki/File:Blue-eyed_kitten.jpg>
+     (CC-BY 2.0)
+   - =kucing-belang-perang.jpg= -- Kerina yin, "Kucing belang perang
+     (brown mackerel tabby cat)."
+     <https://commons.wikimedia.org/wiki/File:Kucing_belang_perang_%28brown_mackerel_tabby_cat%29.JPG>
+     (PD)
+   - "Computer keyboard US",
+     <https://commons.wikimedia.org/wiki/File:Computer_keyboard_US.svg>
+     (PD)
+   - "Git logo",
+     <https://commons.wikimedia.org/wiki/File:Git-logo.svg> (CC-BY
+     3.0)
+
+** Лицензия
+   Copyright © 2015 Artyom V. Poptsov <poptsov.artyom@gmail.com>
+
+   Права на копирование других изображений, использованных в данной
+   работе, принадлежат их владельцам.
+
+   Данная работа распространяется на условиях лицензии Creative Commons
+   Attribution-ShareAlike 4.0 International:
+   https://creativecommons.org/licenses/by-sa/4.0/
