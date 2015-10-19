@@ -1,5 +1,5 @@
-L0_TEX = lection0.tex
-L0_PDF = lection0.pdf
+L0_TEX = lecture-0.tex
+L0_PDF = lecture-0.pdf
 
 PDF = \
 	$(L0_PDF)
