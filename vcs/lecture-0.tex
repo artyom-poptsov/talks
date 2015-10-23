@@ -674,7 +674,7 @@ $ ls -A
 
 \subsubsection{git diff}
 
-\begin{frame}[fragile]{\texttt{git diff}}
+\begin{frame}[fragile]{\texttt{git diff} -- 1}
   \textbf{Делаем изменения:}
 \begin{verbatim}
 $ echo "world" >> hello-world.txt
@@ -695,6 +695,21 @@ index ce01362..94954ab 100644
 $ git add hello-world.txt
 $ git commit -m "hello-world.txt: Update"
 \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{git diff} -- 2}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=1\textwidth]{git-operation-diff}
+  \end{figure}
+  \begin{itemize}
+  \item Если файл \texttt{hello-world.txt} ещё не добавлен в область
+    подготовленных файлов, то \texttt{git diff} сравнивает рабочую
+    копию с версией из репозитория.
+  \item Если \texttt{hello-world.txt} добавлен в область
+    подготовленных файлов (через \texttt{git add}), то \texttt{git
+      diff} сравнивает рабочую копию с подготовленной версией.
+  \end{itemize}
 \end{frame}
 
 
