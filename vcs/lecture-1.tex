@@ -214,7 +214,10 @@ $ git commit
 $ git checkout master
 \end{verbatim}
       \item \textbf{Меняем \texttt{hello-world.txt}}
-      \item \textbf{Фиксируем изменения.}
+      \item \textbf{Фиксируем изменения:}
+\begin{verbatim}
+$ git commit
+\end{verbatim}
       \end{enumerate}
       \end{column}
       \begin{column}{.5\textwidth}
@@ -253,23 +256,114 @@ $ git checkout master
           \centering
           \includegraphics[height=.8\textheight]{Fazen_-_charming_(by)}
           \newline
-          Куда бы замёржить эту ветвь?
+          Ну что, мёржим?
         \end{figure}
       \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}[fragile]{Слияние}
+\begin{frame}[fragile]{Простое слияние: fast-forward -- 1}
   \begin{columns}
-    \begin{column}{.5\textwidth}
+    \begin{column}{.4\textwidth}
+      Начальное состояние:
+      \begin{itemize}
+      \item На \texttt{branch-1} закоммичены (зафиксированы) изменения
+      \item \texttt{master} не двигался с момента создания ветви
+        \texttt{branch-1}
+      \end{itemize}
+      \end{column}
+      \begin{column}{.6\textwidth}
+        \begin{figure}[htb]
+          \centering
+          \includegraphics[height=.6\textheight]{git-operation-merge-1-1}
+        \end{figure}
+      \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Простое слияние: fast-forward -- 2}
+  \begin{columns}
+    \begin{column}{.4\textwidth}
 \begin{verbatim}
+$ git checkout master
 $ git merge branch-1
 \end{verbatim}
+      Результат:
+      \begin{itemize}
+      \item Перемещается указатель на верхушку ветви
+      \item Новых коммитов не создаётся
+      \end{itemize}
       \end{column}
-      \begin{column}{.5\textwidth}
+      \begin{column}{.6\textwidth}
         \begin{figure}[htb]
           \centering
           \includegraphics[height=.7\textheight]{git-operation-merge-1}
+        \end{figure}
+      \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Простое слияние: fast-forward -- 3}
+  \begin{columns}
+    \begin{column}{.4\textwidth}
+\begin{verbatim}
+$ git checkout master
+$ git merge branch-1
+\end{verbatim}
+      Результат:
+      \begin{itemize}
+      \item Перемещается указатель на верхушку ветви
+      \item Новых коммитов не создаётся
+      \end{itemize}
+      \end{column}
+      \begin{column}{.6\textwidth}
+        \begin{figure}[htb]
+          \centering
+          \includegraphics[height=.7\textheight]{git-operation-merge-1-2}
+        \end{figure}
+      \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Удаление ветви}
+  \begin{columns}
+    \begin{column}{.4\textwidth}
+\begin{verbatim}
+$ git branch --delete branch-1
+\end{verbatim}
+      Результат:
+      \begin{itemize}
+      \item Ветвь \texttt{branch-1} удалена
+      \end{itemize}
+      \end{column}
+      \begin{column}{.6\textwidth}
+        \begin{figure}[htb]
+          \centering
+          \includegraphics[height=.7\textheight]{git-operation-merge-1-3}
+        \end{figure}
+      \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{"Тяжёлый случай": recursive merge}
+  \begin{columns}
+    \begin{column}{.4\textwidth}
+\begin{verbatim}
+$ git checkout master
+$ git merge branch-1
+\end{verbatim}
+      Результат:
+      \begin{itemize}
+      \item Производится слияние изменений
+      \item Результатом слияния является новый коммит
+      \item При слиянии могут возникнуть конфликты
+      \item Перемещается указатель на верхушку ветви
+      \end{itemize}
+      \end{column}
+      \begin{column}{.6\textwidth}
+        \begin{figure}[htb]
+          \centering
+          \includegraphics[height=.7\textheight]{git-operation-merge-2}
         \end{figure}
       \end{column}
     \end{columns}
