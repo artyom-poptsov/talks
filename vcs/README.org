@@ -64,6 +64,9 @@ $ git clone https://github.com/artyom-poptsov/talks.git avp-talks
    - "Git logo",
      <https://commons.wikimedia.org/wiki/File:Git-logo.svg> (CC-BY
      3.0)
+   - =Fazen_-_charming_(by).jpg= -- Stefano Mortellaro, "charming"
+     <https://commons.wikimedia.org/wiki/File:Fazen_-_charming_%28by%29.jpg>
+     (CC-BY 2.0)
 
 ** Лицензия
    Copyright © 2015 Artyom V. Poptsov <poptsov.artyom@gmail.com>
