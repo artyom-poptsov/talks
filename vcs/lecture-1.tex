@@ -335,6 +335,10 @@ $ git branch --delete branch-1
       \begin{itemize}
       \item Ветвь \texttt{branch-1} удалена
       \end{itemize}
+        \begin{figure}[htb]
+          \centering
+          \includegraphics[height=.7\textwidth]{Sekator_shema}
+        \end{figure}
       \end{column}
       \begin{column}{.6\textwidth}
         \begin{figure}[htb]
@@ -345,7 +349,28 @@ $ git branch --delete branch-1
     \end{columns}
 \end{frame}
 
-\begin{frame}[fragile]{"Тяжёлый случай": recursive merge}
+
+\begin{frame}[fragile]{"Тяжёлый случай": recursive merge -- 1}
+  \begin{columns}
+    \begin{column}{.4\textwidth}
+      Начальное состояние:
+      \begin{itemize}
+      \item На \texttt{branch-1} закоммичены (зафиксированы) изменения
+      \item На \texttt{master} закоммичены изменения после создания
+        ветви \texttt{branch-1}
+      \item Изменения на ветвях не пересекаются (сделаны в разных файлах)
+      \end{itemize}
+      \end{column}
+      \begin{column}{.6\textwidth}
+        \begin{figure}[htb]
+          \centering
+          \includegraphics[height=.7\textheight]{git-operation-merge-2-1}
+        \end{figure}
+      \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{"Тяжёлый случай": recursive merge -- 2}
   \begin{columns}
     \begin{column}{.4\textwidth}
 \begin{verbatim}
@@ -354,23 +379,213 @@ $ git merge branch-1
 \end{verbatim}
       Результат:
       \begin{itemize}
-      \item Производится слияние изменений
+      \item Производится попытка автоматического слияния изменений
       \item Результатом слияния является новый коммит
-      \item При слиянии могут возникнуть конфликты
       \item Перемещается указатель на верхушку ветви
       \end{itemize}
       \end{column}
       \begin{column}{.6\textwidth}
         \begin{figure}[htb]
           \centering
-          \includegraphics[height=.7\textheight]{git-operation-merge-2}
+          \includegraphics[height=.7\textheight]{git-operation-merge-2-2}
         \end{figure}
       \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}{Разрешение конфликтов}
+\begin{frame}[fragile]{"Тяжёлый случай": recursive merge -- 3}
+  \begin{columns}
+    \begin{column}{.4\textwidth}
+\begin{verbatim}
+$ git branch \
+     --delete branch-1
+\end{verbatim}
+      Результат:
+      \begin{itemize}
+      \item Ветвь \texttt{branch-1} удалена
+      \end{itemize}
+      \end{column}
+      \begin{column}{.6\textwidth}
+        \begin{figure}[htb]
+          \centering
+          \includegraphics[height=.7\textheight]{git-operation-merge-2-3}
+        \end{figure}
+      \end{column}
+    \end{columns}
+\end{frame}
 
+\begin{frame}[fragile]{Шпаргалка садовника}
+  \begin{columns}
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+      \item Создать ветвь и переключиться на неё:
+\begin{verbatim}
+$ git checkout -b branch-1
+\end{verbatim}
+      \item Замёржить ветвь \texttt{branch-1} на \texttt{master}:
+\begin{verbatim}
+$ git checkout master
+$ git merge branch-1
+\end{verbatim}
+      \item Удалить ветвь \texttt{branch-1}:
+\begin{verbatim}
+$ git branch --delete branch-1
+\end{verbatim}
+      \item Показать список ветвей:
+\begin{verbatim}
+$ git branch
+\end{verbatim}
+      \end{itemize}
+    \end{column}
+    \begin{column}{.4\textwidth}
+      \begin{figure}[htb]
+        \centering
+        \includegraphics[height=.8\textheight]{cat-gitbranching}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]{Разрешение конфликтов -- 1}
+  \begin{columns}
+    \begin{column}{.6\textwidth}
+\begin{verbatim}
+$ git init
+
+$ echo "hello" > hello-world.txt
+$ git add hello-world.txt
+$ git commit
+
+$ git checkout -b branch-1
+$ echo "world" >> hello-world.txt
+$ git add hello-world.txt
+$ git commit
+
+$ git checkout master 
+$ echo "git" >> hello-world.txt
+$ git add hello-world.txt
+$ git commit
+\end{verbatim}
+      \end{column}
+      \begin{column}{.4\textwidth}
+        \begin{figure}[htb]
+          \centering
+          \includegraphics[height=.6\textheight]{git-operation-merge-2-1}
+        \end{figure}
+      \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Разрешение конфликтов -- 2}
+  \begin{columns}
+    \begin{column}{.6\textwidth}
+      Начальное состояние:
+      \begin{itemize}
+      \item На \texttt{branch-1} закоммичены (зафиксированы) изменения
+      \item На \texttt{master} закоммичены изменения после создания
+        ветви \texttt{branch-1}
+      \item Изменения на ветвях пересекаются (изменены одни и те же
+        файлы)
+      \end{itemize}
+      \end{column}
+      \begin{column}{.4\textwidth}
+        \begin{figure}[htb]
+          \centering
+          \includegraphics[height=.6\textheight]{git-operation-merge-2-1}
+        \end{figure}
+      \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Разрешение конфликтов -- 3}
+  \begin{columns}
+    \begin{column}{.6\textwidth}
+\begin{verbatim}
+$ git merge branch-1
+Auto-merging hello-world.txt
+CONFLICT (content): Merge conflict
+  in hello-world.txt
+Automatic merge failed;
+  fix conflicts and then commit
+  the result.
+\end{verbatim}
+      \end{column}
+      \begin{column}{.4\textwidth}
+        \begin{figure}[htb]
+          \centering
+          \includegraphics[height=.6\textheight]{git-operation-merge-2-1}
+        \end{figure}
+      \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Разрешение конфликтов -- 4}
+  Статус репозитория:
+\begin{verbatim}
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   hello-world.txt
+
+no changes added to commit (use "git add"
+  and/or "git commit -a")
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Разрешение конфликтов -- 5}
+  Файл, в котором возник конфликт, с метками Git:
+\begin{verbatim}
+$ cat hello-world.txt
+hello
+<<<<<<< HEAD
+git
+=======
+world
+>>>>>>> branch-1
+\end{verbatim}
+  Разрешаем конфликт вручную, редактируя файл.  Сохраняем.
+  Результат:
+\begin{verbatim}
+$ cat hello-world.txt
+hello
+git
+world
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Разрешение конфликтов -- 6}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      Фиксируем результат слияния:
+\begin{verbatim}
+$ git add hello-world.txt
+$ git commit
+\end{verbatim}
+      
+      Результат:
+\begin{verbatim}
+$ git log -1
+commit ea835e9...
+Merge: 35abf34 f3f5057
+Author: Artyom V. Poptsov ...
+Date:   Fri Aug 26 ...
+
+    Merge branch 'branch-1'
+\end{verbatim}
+      \end{column}
+      \begin{column}{.5\textwidth}
+        \begin{figure}[htb]
+          \centering
+          \includegraphics[height=.6\textheight]{git-operation-merge-2-4}
+        \end{figure}
+      \end{column}
+    \end{columns}
 \end{frame}
 
 

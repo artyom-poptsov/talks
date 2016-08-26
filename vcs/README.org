@@ -67,6 +67,12 @@ $ git clone https://github.com/artyom-poptsov/talks.git avp-talks
    - =Fazen_-_charming_(by).jpg= -- Stefano Mortellaro, "charming"
      <https://commons.wikimedia.org/wiki/File:Fazen_-_charming_%28by%29.jpg>
      (CC-BY 2.0)
+   - =cat-gitbranching-original.jpg= -- Dirk Vorderstraße, "Kater Isi"
+     <https://commons.wikimedia.org/wiki/File:Kater_Isi_%2810574390153%29.jpg>
+     (CC-BY 2.0)
+   - =Sekator_shema.jpg= -- Izvora, "Pruning shears"
+     <https://commons.wikimedia.org/wiki/File:Sekator_shema.jpg>
+     (CC-BY-SA 3.0)
 
 ** Лицензия
    Copyright © 2015 Artyom V. Poptsov <poptsov.artyom@gmail.com>
