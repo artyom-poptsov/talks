@@ -591,17 +591,191 @@ Date:   Fri Aug 26 ...
 
 %%%
 
-\section{Редактирование истории}
+\section{Работа с удалёнными репозиториями}
 
-\subsection{Редактирование истории}
+\subsection{Работа с удалёнными репозиториями}
+
+\begin{frame}{Работа с уделёнными репозиториями -- 1}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Git --
+      \textbf{Распределённая} система контроля версий.\newline\newline
+
+      Следовательно:
+      \begin{itemize}
+      \item В большинстве случаев локально хранится полная копия
+        репозитория.
+      \item Копии репозитория могут быть синхронизированы между собой.
+      \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{figure}[htb]
+        \centering
+        \includegraphics[height=.6\textheight]{vcs-decentralized}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Работа с уделёнными репозиториями -- 2}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      Основные команды:
+      \begin{itemize}
+      \item \alert{clone} -- Получение копии репозитория.
+      \item \alert{pull} -- Получение изменений из удалённого
+        репозитория.
+      \item \alert{push} -- Выгрузка изменений в удалённый
+        репозиторий.
+      \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{figure}[htb]
+        \centering
+        \includegraphics[height=.6\textheight]{vcs-decentralized}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{git clone} -- 1}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=.6\textwidth]{git-operation-clone-1}
+  \end{figure}
+  Получение копии (клонирование) репозитория:
+\begin{verbatim}
+$ git clone https://example.com/gitproject.git
+\end{verbatim}
+
+  Другие способы клонирования:
+\begin{verbatim}
+$ git clone /opt/git/gitproject.git
+$ git clone ssh://user@example.com/gitproject.git
+$ git clone git://example.com/gitproject.git
+...
+\end{verbatim}
+
+  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} При клонировании
+  удалённый репозиторий будет запомнен в локальной копии под именем
+  \texttt{origin}.
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{git clone} -- 2}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=.6\textwidth]{git-operation-clone-2}
+  \end{figure}
+  Получение копии (клонирование) репозитория:
+\begin{verbatim}
+$ git clone https://example.com/gitproject.git
+\end{verbatim}
+
+  Другие способы клонирования:
+\begin{verbatim}
+$ git clone /opt/git/gitproject.git
+$ git clone ssh://user@example.com/gitproject.git
+$ git clone git://example.com/gitproject.git
+...
+\end{verbatim}
+
+  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} При клонировании
+  удалённый репозиторий будет запомнен в локальной копии под именем
+  \texttt{origin}.
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{git clone} -- 3}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=.6\textwidth]{git-operation-clone-3}
+  \end{figure}
+  Получение копии (клонирование) репозитория:
+\begin{verbatim}
+$ git clone https://example.com/gitproject.git
+\end{verbatim}
+
+  Другие способы клонирования:
+\begin{verbatim}
+$ git clone /opt/git/gitproject.git
+$ git clone ssh://user@example.com/gitproject.git
+$ git clone git://example.com/gitproject.git
+...
+\end{verbatim}
+
+  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} При клонировании
+  удалённый репозиторий будет запомнен в локальной копии под именем
+  \texttt{origin}.
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{git pull}}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=.6\textwidth]{git-operation-pull}
+  \end{figure}
+  Получение новых изменений с ветви \texttt{master} из удалённого
+  репозитория \texttt{origin}:
+\begin{verbatim}
+$ git pull origin master
+\end{verbatim}
+\end{frame}
+
+
+\begin{frame}[fragile]{\texttt{git push}}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=.6\textwidth]{git-operation-push}
+  \end{figure}
+  Выгрузка изменений с ветви \texttt{master} в удалённый репозиторий
+  \texttt{origin}:
+\begin{verbatim}
+$ git push origin master
+\end{verbatim}
+
+  Выгрузка изменений с \textbf{текущей} ветви в удалённый репозиторий
+  \texttt{origin}:
+\begin{verbatim}
+$ git push origin HEAD
+\end{verbatim}
+\end{frame}
 
 
 %%%
 
-\section{Полезные трюки}
+\subsection{Спасибо за внимание!}
 
-\subsection{Полезные трюки}
+\begin{frame}{Спасибо за внимание!}
+  \large
 
+  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Ни один котёнок не
+  пострадал при подготовке этой презентации! \\[30pt]
+
+  Эл. почта: \url{poptsov.artyom@gmail.com}
+
+  \medskip
+
+  Презентация и её ``исходники'' под лицензией Creative Commons:
+  \url{github.com/artyom-poptsov/talks/tree/master/vcs} \\[10pt]
+
+  Спасибо, что выслушали  :-) \\[30pt]
+
+  \bigskip
+
+  \huge Вопросы?
+\end{frame}
+
+\begin{frame}{Лицензия}
+  Copyright \textcopyright 2015 Artyom V. Poptsov
+  <poptsov.artyom@gmail.com> \newline
+
+  Права на копирование других изображений, использованных в данной
+  работе, принадлежат их владельцам. \newline
+
+  Данная работа распространяется на условиях лицензии Creative Commons
+  Attribution-ShareAlike 4.0 International:
+  \url{https://creativecommons.org/licenses/by-sa/4.0/}
+\end{frame}
+
+\end{document}
 
 \end{document}
 
