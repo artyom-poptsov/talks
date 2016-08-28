@@ -1,8 +1,6 @@
 * Введение в системы управления версиями
-  - =lecture-0.pdf= -- Вводная лекция по системам управления версиями
-    ([[https://github.com/artyom-poptsov/talks/raw/master/vcs/lecture-0.pdf][прямая ссылка на скачивание файла с GitHub]]).
-  - =lecture-1.pdf= -- Лекция по DVCS Git ([[https://github.com/artyom-poptsov/talks/raw/master/vcs/lecture-1.pdf][прямая ссылка на скачивание
-    файла с GitHub]]).
+  - [[https://github.com/artyom-poptsov/talks/raw/master/vcs/lecture-0.pdf][lecture-0.pdf]] -- Вводная лекция по системам управления версиями.
+  - [[https://github.com/artyom-poptsov/talks/raw/master/vcs/lecture-1.pdf][lecture-1.pdf]] -- Лекция по DVCS Git.
 
 ** Клонирование репозитория
    Полную копию репозитория можно получить, выполнив команду =git
