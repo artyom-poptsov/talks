@@ -1,0 +1,346 @@
+% Created 2015-02-20 Пт 06:18
+\documentclass[presentation]{beamer}
+
+
+%%% Packages.
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath, amssymb}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage[english, russian]{babel}
+\usepackage[labelformat=empty]{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\let\Cross\relax
+\let\Square\relax
+\usepackage{bbding}
+\usepackage{fancyvrb}
+
+
+%%%
+
+\graphicspath{{graphics/}}
+
+\usetheme[height=20pt]{Rochester}
+
+
+%%% Title.
+
+\author{Артём Попцов}
+\date{2016-09-01}
+
+\title{GNU Privacy Guard}
+
+\begin{document}
+
+\maketitle
+
+
+%%% TOC.
+
+\begin{frame}{Содержание}
+  \setcounter{tocdepth}{1}
+  \tableofcontents
+\end{frame}
+
+
+%%%
+
+\section{Введение}
+
+\subsection{Введение}
+
+\begin{frame}{Введение}
+  Задачи, решаемые с помощью криптографии:
+\begin{itemize}
+\item Приватность переписки
+\item Шифрование данных\newline
+\end{itemize}
+
+Задачи, решаемые с помощью электронной подписи:
+\begin{itemize}
+\item Контроль целостности данных
+\item Защита от изменений (подделки) данных
+\item Доказательство авторства документа
+\item Фиксирование невозможности отказа от авторства
+\end{itemize}
+\end{frame}
+
+
+\section{Создание пары ключей}
+
+\subsection{Создание пары ключей}
+
+\begin{frame}[fragile]{Создание пары ключей -- 1}
+  Пара ``закрытый ключ -- публичный ключ'' может быть создана
+  следующей командой:
+\begin{verbatim}
+$ gpg --gen-key
+\end{verbatim}
+  При создании ключа необходимо:
+  \begin{enumerate}
+  \item Выбрать тип ключа:
+\begin{Verbatim}[commandchars=\\\[\]]
+Please select what kind of key you want:
+   (1) RSA and RSA (default)
+   (2) DSA and Elgamal
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+Your selection? [\color[red]1]
+\end{Verbatim}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Создание пары ключей -- 2}
+  \begin{enumerate}
+    \setcounter{enumi}{1}
+  \item Выбрать длину ключа:
+\begin{Verbatim}[commandchars=\\\[\]]
+RSA keys may be between 1024 and 4096 bits long.
+What keysize do you want? (2048) [\color[red]2048]
+Requested keysize is 2048 bits
+\end{Verbatim}
+  \item Выбрать ``срок годности'' ключа:
+\begin{Verbatim}[commandchars=\\\[\]]
+Please specify how long the key should be valid.
+         0 = key does not expire
+      <n>  = key expires in n days
+      <n>w = key expires in n weeks
+      <n>m = key expires in n months
+      <n>y = key expires in n years
+Key is valid for? (0) [\color[red]0]
+Key does not expire at all
+Is this correct? (y/N) [\color[red]y]
+\end{Verbatim}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Создание пары ключей -- 3}
+  \begin{enumerate}
+    \setcounter{enumi}{3}
+  \item Указать реальное имя владельца ключа:
+\begin{Verbatim}[commandchars=\\\[\]]
+GnuPG needs to construct a user ID to identify
+  your key.
+
+Real name: [\color[red]Vasiliy I. Pupkin]
+\end{Verbatim}
+  \item Указать адрес электронной почты владельца:
+\begin{Verbatim}[commandchars=\\\[\]]
+Email address: [\color[red]vip@example.ru]
+\end{Verbatim}
+
+  \item (Опционально) указать комментарий к ключу:
+\begin{Verbatim}[commandchars=\\\[\]]
+Comment:
+\end{Verbatim}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Создание пары ключей -- 4}
+  \begin{enumerate}
+  \setcounter{enumi}{6}
+\item Проверить указанную информацию и подтвердить её:
+  \begin{Verbatim}[commandchars=\\\[\]]
+You selected this USER-ID:
+    "Vasiliy I. Pupkin <vip@example.ru>"
+
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? [\color[red]O]
+  \end{Verbatim}
+
+\item Задать пароль для доступа к закрытому ключу:
+  \begin{Verbatim}[commandchars=\\\[\]]
+You need a Passphrase to protect your secret key.
+  \end{Verbatim}
+
+\item ``Пошуметь'' для генерации достаточного количества энтропии:
+  \begin{Verbatim}[commandchars=\\\[\]]
+We need to generate a lot of random bytes. It is a good 
+idea to perform some other action (type on the keyboard,
+move the mouse, utilize the disks) during the prime
+generation; this gives the random number generator a
+better chance to gain enough entropy.
+  \end{Verbatim}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Создание пары ключей -- 5}
+  Результат:
+  \begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --list-secret-keys
+/home/vip/.gnupg/secring.gpg
+----------------------------
+sec   2048R/F4A78166 2016-08-29
+uid                  Vasiliy I. Pupkin <vip@example.ru>
+ssb   2048R/BAED1502 2016-08-29
+  \end{Verbatim}
+\end{frame}
+
+%%%
+
+\subsection{Генерация сертификата отзыва ключа}
+
+\begin{frame}[fragile]{Генерация сертификата отзыва ключа -- 1}
+  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Сертификат отзыва
+  ключа (англ. \emph{revocation certificate}) -- Сертификат, который,
+  будучи опубликованным, говорит о том, что связанный с ним ключ более
+  не должен использоваться.\newline\newline
+\end{frame}
+
+\begin{frame}[fragile]{Генерация сертификата отзыва ключа -- 2}
+\begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --output revoke.asc --gen-revoke F4A78166
+
+sec  2048R/F4A78166 2016-08-29
+  Vasiliy I. Pupkin <vip@example.ru>
+
+Create a revocation certificate for this key? (y/N) y
+Please select the reason for the revocation:
+  0 = No reason specified
+  1 = Key has been compromised
+  2 = Key is superseded
+  3 = Key is no longer used
+  Q = Cancel
+(Probably you want to select 1 here)
+Your decision? [\color[red]1]
+\end{Verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Генерация сертификата отзыва ключа -- 3}
+  Пример сертификата отзыва:\newline
+\footnotesize
+\begin{Verbatim}[commandchars=\\\[\]]
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2
+Comment: A revocation certificate should follow
+
+iQEfBCABCAAJBQJXxAjjAh0CAAoJEHP7tQj0p4FmCpgIAJc8E6NriXKEl/AASVuL
+LdiBrKcRIflk5me92mgKXd85GEFQGxIkwVziwr73CSzb4/As1pcfsxcF6WQw5173
+vwTcml9fIzWTOJIr7qpj1uuTcnZlKagmMKWHh1sztmzX1YpOHV6hJ9t9xW0y1/js
+5osETifAzh2k9b6NvAkniC3rqwL4DU7NwEkygkgjQgqmZFr0BedzgD5lmbcRRarP
+llFLaqT7yGRZQbT9Nn1RBaPXgG7EvptNYuRYIdYEs2rxBNe/x5IHyWypp2Vacsrj
+4PzXTxk2qpwcuRPHOcEtq0DxrdPwHC5fP1uyFXfVIQs/08pZvAdaq9dOrapaPvXs
+UJ8=
+=OkZL
+-----END PGP PUBLIC KEY BLOCK-----
+\end{Verbatim}
+\normalsize
+\end{frame}
+
+
+%%%
+
+\section{Использование}
+
+\subsection{Шифрование}
+
+
+\subsection{Электронная подпись}
+
+\begin{frame}[fragile]{Электронная подпись файлов}
+  Подписать файл можно следующим образом:
+\begin{verbatim}
+$ touch important-file.txt
+$ gpg --detach-sign important-file.txt
+\end{verbatim}
+
+  Электронная подпись будет сохранена файле
+  \texttt{important-file.txt.gpg}:
+\begin{verbatim}
+$ ls important-file*
+important-file.txt important-file.txt.gpg
+\end{verbatim}
+\end{frame}
+
+
+\subsection{Сервера ключей}
+
+
+
+\section{Сеть доверия}
+
+\subsection{Сеть доверия}
+
+\begin{frame}{Сеть доверия}
+  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Сеть доверия
+  (англ. \emph{web of trust}) -- децентрализованная сеть, основанная
+  на установлении однозначной связи между публичным ключом и
+  владельцем.
+\end{frame}
+
+\begin{frame}{Встречи для подписи ключей}
+  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Встреча для
+  подписи ключей (англ. \emph{key signing party}) -- мероприятие, на
+  котором люди обмениваются отпечатками публичных ключей, с целью
+  дальшейшей подписи публичных ключей друг друга и расширении сети
+  доверия.
+\end{frame}
+
+
+\section{Примеры практического применения}
+
+\subsection{Примеры практического применения}
+
+\begin{frame}[fragile]{Шифрование почты}
+  Существуют почтовые клиенты со встроенной поддержкой шифрования
+  через GnuPG:
+  \begin{itemize}
+  \item KMail
+  \item Evolution
+  \item Thunderbird
+  \item Mutt
+  \item The Bat!
+  \item Gnus
+  \end{itemize}
+\end{frame}
+
+
+
+
+\subsection{Спасибо за внимание!}
+
+\begin{frame}{Спасибо за внимание!}
+  \large
+
+  Эл. почта: \url{poptsov.artyom@gmail.com}
+
+  \medskip
+
+  Презентация и её ``исходники'' под лицензией Creative Commons:
+  \url{github.com/artyom-poptsov/talks/tree/master/vcs} \\[10pt]
+
+  Спасибо, что выслушали  :-) \\[30pt]
+
+  \bigskip
+
+  \huge Вопросы?
+\end{frame}
+
+\begin{frame}{Лицензия}
+  Copyright \textcopyright 2015 Artyom V. Poptsov
+  <poptsov.artyom@gmail.com> \newline
+
+  Права на копирование других изображений, использованных в данной
+  работе, принадлежат их владельцам. \newline
+
+  Данная работа распространяется на условиях лицензии Creative Commons
+  Attribution-ShareAlike 4.0 International:
+  \url{https://creativecommons.org/licenses/by-sa/4.0/}
+\end{frame}
+
+
+\end{document}
+
+%%% lection-0.tex ends here.
