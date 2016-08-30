@@ -102,6 +102,30 @@
 (\url{https://www.gpg4win.org/}).
 \end{frame}
 
+\begin{frame}[fragile]{Настройка GnuPG}
+  \begin{enumerate}
+  \item Запустить \texttt{gpg-agent}:
+\begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg-agent -s --daemon \textbackslash
+     --write-env-file \textbackslash
+     --use-standard-socket
+\end{Verbatim}
+\vspace{5 mm}
+В консоль будет напечатано что-то вроде этого:
+\begin{Verbatim}[commandchars=\\\[\]]
+GPG_AGENT_INFO=/home/vip/.gnupg/S.gpg-agent:22743:1;
+export GPG_AGENT_INFO;
+\end{Verbatim}
+\vspace{5 mm}
+\item Выполнить экспорт переменной окружения \texttt{GPG\_AGENT\_INFO},
+  как предложено выше:
+\begin{Verbatim}[commandchars=\\\[\]]
+\$ GPG_AGENT_INFO=/home/vip/.gnupg/S.gpg-agent:22743:1
+\$ export GPG_AGENT_INFO
+\end{Verbatim}
+  \end{enumerate}
+\end{frame}
+
 
 \section{Создание пары ключей}
 
