@@ -63,20 +63,16 @@
 \subsection{Введение}
 
 \begin{frame}{Введение}
-  Задачи, решаемые с помощью GnuPG:\newline
+  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} GNU Privacy Guard
+  (GnuPG) -- свободная программа шифрования информации и создания
+  электронных цифровых подписей (ЭЦП).
+
+  \vspace{5 mm}
+
+  Задачи, решаемые с помощью GnuPG:
   \begin{itemize}
   \item Шифрование данных
-    \begin{itemize}
-    \item Защита данных от несанкционированного доступа
-    \item Обеспечение приватности переписки\newline
-    \end{itemize}
-  \item Электронная подпись
-    \begin{itemize}
-    \item Контроль целостности данных
-    \item Защита от изменений (подделки) данных
-    \item Доказательство авторства документа
-    \item Фиксирование невозможности отказа от авторства
-    \end{itemize}
+  \item Электронная подпись данных
   \end{itemize}
 \end{frame}
 
@@ -311,12 +307,12 @@ UJ8=
 \begin{Verbatim}[commandchars=\\\[\]]
 \$ gpg --import revoke.asc
 gpg: key F4A78166: "Vasiliy I. Pupkin <vip@example.ru>"
-  revocation certificate imported
+     revocation certificate imported
 gpg: Total number processed: 1
 gpg:    new key revocations: 1
 gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
 gpg: depth: 0  valid:   3  signed:   0
-  trust: 0-, 0q, 0n, 0m, 0f, 3u
+     trust: 0-, 0q, 0n, 0m, 0f, 3u
 \end{Verbatim}
     \normalsize
   \item Загрузить обновлённый ключ на сервер:
@@ -338,6 +334,27 @@ gpg: depth: 0  valid:   3  signed:   0
 
 \subsection{Электронная подпись}
 
+\begin{frame}[fragile]{Электронная подпись}
+  Электронная подпись обеспечивает следующие свойства:
+  \begin{itemize}
+  \item \alert{Целостность} -- гарантия отсутствия искажений данных с
+    момента формирования подписи.
+  \item \alert{Авторство} -- принадлежность подписи владельцу ключа.
+  \item \alert{Неотказуемость} -- фиксирование невозможности отказа от
+    авторства
+  \end{itemize}
+
+  \vspace{5 mm}
+
+  Примеры практического применения электронных подписей:
+  \begin{itemize}
+  \item Подпись важных писем и документов.
+  \item Подпись релизов пакетов в DVCS Git.
+  \item Подпись дистрибутивов программ.
+  \item \ldots{}
+  \end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]{Электронная подпись файлов}
   Подписать файл можно следующим образом:
 \begin{verbatim}
@@ -353,6 +370,97 @@ important-file.txt important-file.txt.gpg
 \end{verbatim}
 \end{frame}
 
+\begin{frame}[fragile]{Проверка электронной подписи}
+  Для проверки электронной подписи вам потребуется выполнить следующую
+  команду:
+\begin{verbatim}
+$ gpg --verify important-file.txt.gpg
+\end{verbatim}
+
+  Результат:
+  \footnotesize
+\begin{verbatim}
+gpg: assuming signed data in 'important-file.txt'
+gpg: Signature made Tue 30 Aug 2016 09:13:37 PM MSK
+     using RSA key ID F4A78166
+gpg: Good signature from "Vasiliy I. Pupkin <vip@example.ru>"
+     [ultimate]
+\end{verbatim}
+  \normalsize
+\end{frame}
+
+\begin{frame}[fragile]{Более жизненный пример -- 1}
+  \textbf{Задача: проверить подпись дистрибутива ПО Bash.}
+  Скачиваем дистрибутив Bash и электронную подпись архива:
+\begin{verbatim}
+$ wget ftp://ftp.cwru.edu/pub/bash/bash-4.3.tar.gz
+$ wget ftp://ftp.cwru.edu/pub/bash/bash-4.3.tar.gz.sig
+\end{verbatim}
+  Проверяем подпись:
+\begin{verbatim}
+$ gpg --verify bash-4.3.tar.gz.sig
+\end{verbatim}
+  \footnotesize
+\begin{Verbatim}[commandchars=\\\[\]]
+gpg: assuming signed data in 'bash-4.3.tar.gz'
+gpg: Signature made Tue 25 Feb 2014 06:36:04 PM MSK
+     using DSA key ID 64EA74AB
+gpg: [\color[red]Can't check signature: No public key]
+\end{Verbatim}
+  \normalsize
+
+  \vspace{5 mm}
+
+  Опаньки!  У нас нет публичного ключа для \texttt{64EA74AB}, которым
+  подписан архив!
+\end{frame}
+
+
+\begin{frame}[fragile]{Более жизненный пример -- 2}
+  Запросим ключ с сервера ключей:
+  \begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --recv-keys 64EA74AB
+  \end{Verbatim}
+  \footnotesize
+  \begin{Verbatim}[commandchars=\\\[\]]
+gpg: requesting key 64EA74AB from hkp server
+     keys.gnupg.net
+gpg: key 64EA74AB: public key "Chet Ramey <chet@cwru.edu>" imported
+gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
+gpg: depth: 0  valid:   3  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 3u
+gpg: Total number processed: 1
+gpg:               imported: 1
+  \end{Verbatim}
+  \normalsize
+\end{frame}
+
+\begin{frame}[fragile]{Более жизненный пример -- 3}
+  Попробуем проверить подпись ещё раз:
+  \begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --verify bash-4.3.tar.gz.sig
+  \end{Verbatim}
+  \footnotesize
+  \begin{Verbatim}[commandchars=\\\[\]]
+gpg: assuming signed data in 'bash-4.3.tar.gz'
+gpg: Signature made Tue 25 Feb 2014 06:36:04 PM MSK
+     using DSA key ID 64EA74AB
+gpg: Good signature from "Chet Ramey <chet@cwru.edu>"
+     [unknown]
+gpg: WARNING: [\color[red]This key is not certified with a]
+gpg:          [\color[red]trusted signature!]
+gpg:          [\color[red]There is no indication that the signature]
+gpg:          [\color[red]belongs to the owner.]
+Primary key fingerprint:
+  7C01 35FB 088A AF6C 66C6  50B9 BB58 69F0 64EA 74AB
+  \end{Verbatim}
+  \normalsize
+
+  \vspace{5 mm}
+
+  Успех!  Однако у нас пока нет доказательств того, что подпись
+  принадлежит владельцу, поскольку публичный ключ \texttt{64EA74AB} не
+  заверен ни одной из доверенных подписей.
+\end{frame}
 
 % \subsection{Сервера ключей}
 
