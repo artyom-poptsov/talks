@@ -63,19 +63,43 @@
 \subsection{Введение}
 
 \begin{frame}{Введение}
-  Задачи, решаемые с помощью криптографии:
+  Задачи, решаемые с помощью GnuPG:\newline
+  \begin{itemize}
+  \item Шифрование данных
+    \begin{itemize}
+    \item Защита данных от несанкционированного доступа
+    \item Обеспечение приватности переписки\newline
+    \end{itemize}
+  \item Электронная подпись
+    \begin{itemize}
+    \item Контроль целостности данных
+    \item Защита от изменений (подделки) данных
+    \item Доказательство авторства документа
+    \item Фиксирование невозможности отказа от авторства
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+%%%
+
+\subsection{Настройка GnuPG}
+
+\begin{frame}[fragile]{Установка GnuPG}
+  На большинстве дистрибутивов GNU/Linux GnuPG можно поставить из
+  репозитория.  Пример для Ubuntu GNU/Linux:
+\begin{Verbatim}[commandchars=\\\[\]]
+\$ sudo apt-get install gnupg gnupg-agent
+\end{Verbatim}
+\vspace{5 mm}
+Что и зачем ставим:
 \begin{itemize}
-\item Приватность переписки
-\item Шифрование данных\newline
+\item \alert{gnupg} -- GNU privacy guard -- свободная замена PGP
+\item \alert{gnupg-agent} -- GNU privacy guard -- менеджер паролей\newline
 \end{itemize}
 
-Задачи, решаемые с помощью электронной подписи:
-\begin{itemize}
-\item Контроль целостности данных
-\item Защита от изменений (подделки) данных
-\item Доказательство авторства документа
-\item Фиксирование невозможности отказа от авторства
-\end{itemize}
+На Microsoft Windows можно воспользоваться \textbf{Gpg4win}
+(\url{https://www.gpg4win.org/}).
 \end{frame}
 
 
@@ -190,16 +214,31 @@ ssb   2048R/BAED1502 2016-08-29
 
 %%%
 
-\subsection{Генерация сертификата отзыва ключа}
+\subsection{Сертификат отзыва ключа}
 
-\begin{frame}[fragile]{Генерация сертификата отзыва ключа -- 1}
+\begin{frame}[fragile]{Сертификат отзыва ключа}
   \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Сертификат отзыва
   ключа (англ. \emph{revocation certificate}) -- Сертификат, который,
   будучи опубликованным, говорит о том, что связанный с ним ключ более
-  не должен использоваться.\newline\newline
+  не должен использоваться.\newline
+
+  \begin{itemize}
+  \item Сертификат должен храниться в безопасном месте (например, в
+    сейфе.)
+  \item Сертификат должен быть создан сразу после генерации приватного
+    ключа.\newline
+  \end{itemize}
+  
+  Случаи, при которых необходимо отзывать ключ:
+  \begin{itemize}
+  \item Забыт (утерян) пароль к ключу.
+  \item Ключ был скомпроментирован.
+  \item Ключ более не действителен.
+  \item \ldots{}
+  \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Генерация сертификата отзыва ключа -- 2}
+\begin{frame}[fragile]{Генерация сертификата отзыва ключа -- 1}
 \begin{Verbatim}[commandchars=\\\[\]]
 \$ gpg --output revoke.asc --gen-revoke F4A78166
 
@@ -218,7 +257,7 @@ Your decision? [\color[red]1]
 \end{Verbatim}
 \end{frame}
 
-\begin{frame}[fragile]{Генерация сертификата отзыва ключа -- 3}
+\begin{frame}[fragile]{Генерация сертификата отзыва ключа -- 2}
   Пример сертификата отзыва:\newline
 \footnotesize
 \begin{Verbatim}[commandchars=\\\[\]]
@@ -239,12 +278,38 @@ UJ8=
 \normalsize
 \end{frame}
 
+\begin{frame}[fragile]{Отзыв ключа}
+  \alert{Вы не должны выполнять отзыв ключа без причины!}\newline
+
+  \begin{itemize}
+  \item Импортировать сертификат:
+    \footnotesize
+\begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --import revoke.asc
+gpg: key F4A78166: "Vasiliy I. Pupkin <vip@example.ru>"
+  revocation certificate imported
+gpg: Total number processed: 1
+gpg:    new key revocations: 1
+gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
+gpg: depth: 0  valid:   3  signed:   0
+  trust: 0-, 0q, 0n, 0m, 0f, 3u
+\end{Verbatim}
+    \normalsize
+  \item Загрузить обновлённый ключ на сервер:
+    \footnotesize
+\begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --keyserver gpg.mit.edu --send-keys F4A78166
+\end{Verbatim}
+    \normalsize
+  \end{itemize}
+\end{frame}
+
 
 %%%
 
 \section{Использование}
 
-\subsection{Шифрование}
+% \subsection{Шифрование}
 
 
 \subsection{Электронная подпись}
@@ -265,7 +330,7 @@ important-file.txt important-file.txt.gpg
 \end{frame}
 
 
-\subsection{Сервера ключей}
+% \subsection{Сервера ключей}
 
 
 
