@@ -467,9 +467,33 @@ Primary key fingerprint:
 
 \subsection{Сервер ключей}
 
-% \begin{frame}[fragile]{Сервер ключей}
+\begin{frame}[fragile]{Сервер ключей}
+  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Сервер
+  криптографических ключей (англ. \emph{key server}) -- хост,
+  предназначенный для хранения и передачи пользователям, а также
+  другим серверам криптографических ключей.
 
-% \end{frame}
+  \begin{itemize}
+  \item Сервера ключей синхронизируют ключи между собой.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Работа с сервером ключей}
+  Загрузка публичного ключа на сервер:
+  \begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --keyserver gpg.mit.edu --send-keys 0xF4A78166
+  \end{Verbatim}
+
+  Получение публичного ключа с сервера:
+  \begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --keyserver gpg.mit.edu --recv-keys 0xF4A78166
+  \end{Verbatim}
+
+  Поиск публичных ключей на сервере:
+  \begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --keyserver gpg.mit.edu --search-keys 0xF4A78166
+  \end{Verbatim}
+\end{frame}
 
 
 %%%
@@ -483,6 +507,30 @@ Primary key fingerprint:
   (англ. \emph{web of trust}) -- децентрализованная сеть, основанная
   на установлении однозначной связи между публичным ключом и
   владельцем.
+\end{frame}
+
+\begin{frame}[fragile]{Подпись ключей}
+  \begin{enumerate}
+  \item Получение отпечатка публичного ключа от владельца
+    \textbf{лично}.
+    \begin{itemize}
+    \item Получатель отпечатка ключа может потребовать документ,
+      удостоверяющий личность владельца ключа.
+    \end{itemize}
+  \item Получение ключа с сервера ключей:
+    \begin{Verbatim}[commandchars=\\\[\]]
+      \$ gpg --recv-keys 0xF4A78166
+    \end{Verbatim}
+  \item Проверка отпечатка ключа:
+    \begin{Verbatim}[commandchars=\\\[\]]
+      \$ gpg --fingerprint 0xF4A78166
+    \end{Verbatim}
+  \item Подпись ключа:
+    \begin{Verbatim}[commandchars=\\\[\]]
+      \$ gpg --sign-key 0xF4A78166
+    \end{Verbatim}
+  \item Отправка подписанного ключа владельцу.
+  \end{enumerate}
 \end{frame}
 
 \begin{frame}{Встречи для подписи ключей}
