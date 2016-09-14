@@ -318,7 +318,7 @@ gpg: depth: 0  valid:   3  signed:   0
   \item Загрузить обновлённый ключ на сервер:
     \footnotesize
 \begin{Verbatim}[commandchars=\\\[\]]
-\$ gpg --keyserver gpg.mit.edu --send-keys F4A78166
+\$ gpg --keyserver pgp.mit.edu --send-keys F4A78166
 \end{Verbatim}
     \normalsize
   \end{itemize}
@@ -328,8 +328,6 @@ gpg: depth: 0  valid:   3  signed:   0
 %%%
 
 \section{Использование}
-
-% \subsection{Шифрование}
 
 
 \subsection{Электронная подпись}
@@ -349,7 +347,7 @@ gpg: depth: 0  valid:   3  signed:   0
   Примеры практического применения электронных подписей:
   \begin{itemize}
   \item Подпись важных писем и документов.
-  \item Подпись релизов пакетов в DVCS Git.
+  \item Подпись релизов программ в DVCS Git.
   \item Подпись дистрибутивов программ.
   \item \ldots{}
   \end{itemize}
@@ -363,10 +361,10 @@ $ gpg --detach-sign important-file.txt
 \end{verbatim}
 
   Электронная подпись будет сохранена файле
-  \texttt{important-file.txt.gpg}:
+  \texttt{important-file.txt.sig}:
 \begin{verbatim}
 $ ls important-file*
-important-file.txt important-file.txt.gpg
+important-file.txt important-file.txt.sig
 \end{verbatim}
 \end{frame}
 
@@ -374,7 +372,7 @@ important-file.txt important-file.txt.gpg
   Для проверки электронной подписи вам потребуется выполнить следующую
   команду:
 \begin{verbatim}
-$ gpg --verify important-file.txt.gpg
+$ gpg --verify important-file.txt.sig
 \end{verbatim}
 
   Результат:
@@ -417,14 +415,21 @@ gpg: [\color[red]Can't check signature: No public key]
 
 
 \begin{frame}[fragile]{Более жизненный пример -- 2}
+  Публичный ключ можно получить разными способами, к примеру:
+  \begin{itemize}
+  \item лично;
+  \item с сервера ключей (об этом -- подробнее через несколько
+    слайдов);
+  \item другим способом.\newline
+  \end{itemize}
   Запросим ключ с сервера ключей:
   \begin{Verbatim}[commandchars=\\\[\]]
-\$ gpg --recv-keys 64EA74AB
+\$ gpg --keyserver pgp.mit.edu --recv-keys 64EA74AB
   \end{Verbatim}
   \footnotesize
   \begin{Verbatim}[commandchars=\\\[\]]
 gpg: requesting key 64EA74AB from hkp server
-     keys.gnupg.net
+     pgp.mit.edu
 gpg: key 64EA74AB: public key "Chet Ramey <chet@cwru.edu>" imported
 gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
 gpg: depth: 0  valid:   3  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 3u
@@ -465,39 +470,6 @@ Primary key fingerprint:
 
 %%%
 
-\subsection{Сервер ключей}
-
-\begin{frame}[fragile]{Сервер ключей}
-  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Сервер
-  криптографических ключей (англ. \emph{key server}) -- хост,
-  предназначенный для хранения и передачи пользователям, а также
-  другим серверам криптографических ключей.
-
-  \begin{itemize}
-  \item Сервера ключей синхронизируют ключи между собой.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Работа с сервером ключей}
-  Загрузка публичного ключа на сервер:
-  \begin{Verbatim}[commandchars=\\\[\]]
-\$ gpg --keyserver gpg.mit.edu --send-keys 0xF4A78166
-  \end{Verbatim}
-
-  Получение публичного ключа с сервера:
-  \begin{Verbatim}[commandchars=\\\[\]]
-\$ gpg --keyserver gpg.mit.edu --recv-keys 0xF4A78166
-  \end{Verbatim}
-
-  Поиск публичных ключей на сервере:
-  \begin{Verbatim}[commandchars=\\\[\]]
-\$ gpg --keyserver gpg.mit.edu --search-keys 0xF4A78166
-  \end{Verbatim}
-\end{frame}
-
-
-%%%
-
 \section{Сеть доверия}
 
 \subsection{Сеть доверия}
@@ -510,6 +482,9 @@ Primary key fingerprint:
 \end{frame}
 
 \begin{frame}[fragile]{Подпись ключей}
+    %% \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Подпись ключей
+    %% -- подпись публичных ключей электронно-цифровой подписью с целью
+    %% подтверждения однозначной связи между владельцем ключа и ключом.
   \begin{enumerate}
   \item Получение отпечатка публичного ключа от владельца
     \textbf{лично}.
@@ -517,10 +492,17 @@ Primary key fingerprint:
     \item Получатель отпечатка ключа может потребовать документ,
       удостоверяющий личность владельца ключа.
     \end{itemize}
-  \item Получение ключа с сервера ключей:
+  \item Получение публичного ключа
+    \begin{itemize}
+    \item с сервера ключей:
     \begin{Verbatim}[commandchars=\\\[\]]
       \$ gpg --recv-keys 0xF4A78166
     \end{Verbatim}
+    \item другим способом:
+    \begin{Verbatim}[commandchars=\\\[\]]
+      \$ gpg --import public-key.asc
+    \end{Verbatim}
+    \end{itemize}
   \item Проверка отпечатка ключа:
     \begin{Verbatim}[commandchars=\\\[\]]
       \$ gpg --fingerprint 0xF4A78166
@@ -542,26 +524,152 @@ Primary key fingerprint:
 \end{frame}
 
 
+%%%
+
+\section{Распространение ключей}
+
+\subsection{Сервер ключей}
+
+\begin{frame}[fragile]{Сервер ключей}
+  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Сервер
+  криптографических ключей (англ. \emph{key server}) -- хост,
+  предназначенный для хранения и передачи пользователям, а также
+  другим серверам криптографических ключей.
+  \vspace{5 mm}
+  \begin{itemize}
+  \item Сервера ключей синхронизируют ключи между собой одним из
+    нижеперечисленных способов:
+    \begin{itemize}
+    \item c помощью пересылки почтовых сообщений с ключами между собой
+      (старый способ);
+    \item с помощью специального протокола.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Работа с сервером ключей}
+  Загрузка публичного ключа на сервер:
+  \begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --keyserver pgp.mit.edu --send-keys 0xF4A78166
+  \end{Verbatim}
+  \vspace{5 mm}
+  Опция \texttt{keyserver} является не обязательной; если её не
+  указывать, то \texttt{gpg} будет использовать умолчальный сервер
+  (\texttt{keys.gnupg.net}).\newline
+
+  Получение публичного ключа с сервера:
+  \begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --keyserver pgp.mit.edu --recv-keys 0xF4A78166
+  \end{Verbatim}
+
+  Поиск публичных ключей на сервере:
+  \begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --keyserver pgp.mit.edu --search-keys 0xF4A78166
+  \end{Verbatim}
+\end{frame}
+
+
+\section{Шифрование}
+
+\subsection{Шифрование}
+
+\begin{frame}[fragile]{Шифрование}
+  GnuPG позволяет шифровать файлы двумя способами:
+  \begin{itemize}
+  \item Ассиметричным шифром -- данные шифруются с использованием
+    публичного ключа.
+  \item Симметричным шифром -- данные шифруются симметричным шифром с
+    паролем.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Ассиметричное шифрование}
+  Пример шифрования файла:
+  \begin{verbatim}
+$ gpg --output output-file.gpg \
+    --encrypt --recipient vip@example.ru document.odt
+  \end{verbatim}
+
+  \vspace{5 mm}
+
+  Описание опций:
+  \begin{itemize}
+  \item \texttt{output} используется для задания имени выходного
+    зашифрованного файла.
+  \item \texttt{encrypt} указывает GnuPG использовать ассиметричное
+    шифрование для файла.
+  \item \texttt{recipient} указывает получателей зашифрованного
+    документа (т.е. тех, кто сможет его расшифровать.)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Симметричное шифрование}
+  Пример шифрования файла:
+  \begin{verbatim}
+$ gpg --output output-file.gpg --symmetric document.odt
+  \end{verbatim}
+
+  \vspace{2.5 mm}
+
+  Описание опций:
+  \begin{itemize}
+  \item \texttt{output} используется для задания имени выходного
+    зашифрованного файла.
+  \item \texttt{symmetric} указывает GnuPG использовать симметричное
+    шифрование для файла.  Ключ, используемый для шифрования, является
+    производным от заданного пароля.
+  \end{itemize}
+
+  \vspace{2.5 mm}
+
+  \textbf{Не используйте пароль от вашего приватного ключа для
+    симметричного шифрования!}
+\end{frame}
+
+
+%%%
+
 \section{Примеры практического применения}
 
 \subsection{Примеры практического применения}
 
 \begin{frame}[fragile]{Шифрование почты}
   Существуют почтовые клиенты со встроенной поддержкой шифрования
-  через GnuPG:
+  через GnuPG, либо поддерживающие GnuPG через плагины:
   \begin{itemize}
   \item KMail
   \item Evolution
-  \item Thunderbird
+  \item Thunderbird (Enigmail)
   \item Mutt
   \item The Bat!
   \item Gnus
   \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]{Шифрование почты}
+  Существуют почтовые клиенты со встроенной поддержкой шифрования
+  через GnuPG, либо поддерживающие GnuPG через плагины:
+  \begin{itemize}
+  \item KMail
+  \item Evolution
+  \item \alert{Thunderbird (Enigmail)}
+  \item Mutt
+  \item The Bat!
+  \item Gnus
+  \end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]{Работа с Enigmail}
+  \begin{itemize}
+  \item Установка
+  \item Настройка
+  \item Использование
+  \end{itemize}
+\end{frame}
 
 
+%%%
+
 \subsection{Спасибо за внимание!}
 
 \begin{frame}{Спасибо за внимание!}
@@ -582,7 +690,7 @@ Primary key fingerprint:
 \end{frame}
 
 \begin{frame}{Лицензия}
-  Copyright \textcopyright 2015 Artyom V. Poptsov
+  Copyright \textcopyright 2016 Artyom V. Poptsov
   <poptsov.artyom@gmail.com> \newline
 
   Права на копирование других изображений, использованных в данной
