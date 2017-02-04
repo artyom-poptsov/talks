@@ -1,0 +1,13 @@
+* Лекция для DEFCON NN 0x01
+** Ключевые слова
+   Cryptography, security, GnuPG, OTR
+** Зависимости
+   - [[https://ctan.org/pkg/pgfornament][pgfornament]]
+** Использованные материалы
+   Использованные источники:
+   - Ian Goldberg, [[https://archive.org/details/IanGoldberg-OtrMessaging][OTR messaging]] ([[http://creativecommons.org/licenses/by-nc-nd/3.0/][CC-BY-NC-ND 3.0]])
+   Основа для дизайна:
+   - Richardson, Milton Thomas (ed.), [[https://archive.org/details/practicalblacksm01richuoft]["Practical blacksmithing"]], volume 1 (PD)
+   - Richardson, Milton Thomas (ed.), [[https://archive.org/details/practicalblacksm00rich]["Practical blacksmithing"]], volume 2 (PD)
+
+
