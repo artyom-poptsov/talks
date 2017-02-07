@@ -68,6 +68,29 @@
   \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{frame-bg}
 }
 
+\useinnertheme{circles}
+\setbeamertemplate{itemize item}{
+  \color{black}
+  \scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\bullet$}
+}
+
+
+%%% Macros.
+
+\newcommand{\RaisedLeftHand}{%
+  \raisebox{-.50em}{\Large\HandLeft}
+}
+
+\newcommand{\RaisedRightHand}{%
+  \raisebox{-.50em}{\Large\HandRight}
+}
+
+\newcommand{\EndOfSectionOrnament}{
+  \begin{center}
+    \pgfornament[width=0.5\textwidth]{88}
+    \end{center}
+}
+
 
 %%% Title.
 
@@ -84,7 +107,7 @@
 
 %%% TOC.
 
-\begin{frame}{СОДЕРЖАНИЕ.}
+\begin{frame}{\sc{Содержание.}}
   \setcounter{tocdepth}{1}
   \tableofcontents
 \end{frame}
@@ -92,9 +115,9 @@
 
 %%%
 
-\section{ВЫБОР ИНСТРУМЕНТА.}
+\section{\sc{Выбор Инструмента.}}
 
-\begin{frame}{ВЫБОР ИНСТРУМЕНТА.}
+\begin{frame}{\sc{Выбор Инструмента.}}
   \begin{quote}
     ``Криптография -- единственный набор инструментов для обеспечения
     безопасности в интернете, который у нас есть.  Мы открываем наш
@@ -123,11 +146,11 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{УДОБСТВО ИСПОЛЬЗОВАНИЯ.}
+\begin{frame}{\sc{Удобство использования.}}
   \begin{columns}
     \begin{column}{0.6\textwidth}
-      \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Инструмент должен
-      быть удобен для использования.
+      \RaisedRightHand Инструмент должен быть удобен для
+      использования.
 
       \bigskip
 
@@ -152,8 +175,8 @@
 
 \end{frame}
 
-\begin{frame}{ДОСТУПНОСТЬ.}
-  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Инструмент должен
+\begin{frame}{\sc{Доступность.}}
+  \RaisedRightHand Инструмент должен
   предъявлять разумные требования, иначе его никто не будет
   использовать.
 
@@ -170,9 +193,9 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{ЭФФЕКТИВНОСТЬ.}
-  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Инструмент должен
-  обеспечивать характеристики, которые были "по гарантии".\newline\newline
+\begin{frame}{\sc{Эффективность.}}
+  \RaisedRightHand Инструмент должен обеспечивать характеристики,
+  которые были "по гарантии".\newline\newline
 
   \bigskip
 
@@ -195,7 +218,7 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{НАДЁЖНОСТЬ.}
+\begin{frame}{\sc{Надёжность.}}
   \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Если ``что-то
   пошло не так'', то инструмент должен сделать всё возможное, чтобы
   уменьшить урон.
@@ -212,30 +235,32 @@
   (Общий принцип надёжности Джона Постела: будьте консервативны в том,
   что делаете, и либеральны в том, что получаете от других.)
 
-  \centering
-  \pgfornament[width=0.5\textwidth]{88}
-
+  \EndOfSectionOrnament
 \end{frame}
 
 
 %%%
 
-\section{ДОСТУПНЫЕ ИНСТРУМЕНТЫ.}
+\section{\sc{Доступные  Инструменты.}}
 
-\begin{frame}{ДОСТУПНЫЕ ИНСТРУМЕНТЫ.}
+\begin{frame}{\sc{Доступные инструменты.}}
   \begin{itemize}
   \item GNU Privacy Guard (GnuPG)
   \item Off-The-Record Messaging (OTR)
   \end{itemize}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.6\textheight]{hammer-02.png}
+  \end{figure}
 \end{frame}
 
 
 %%%
 
-\section{GNU PRIVACY GUARD.}
+\section{\sc{GNU Privacy Guard.}}
 
-\begin{frame}{GNU PRIVACY GUARD.}
-  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} GNU Privacy Guard
+\begin{frame}{\sc{GNU Privacy Guard.}}
+  \RaisedRightHand GNU Privacy Guard
   (GnuPG) -- свободная программа шифрования информации и создания
   электронных цифровых подписей (ЭЦП).
 
@@ -245,6 +270,257 @@
   \begin{itemize}
   \item Шифрование данных
   \item Электронная подпись данных
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\sc{Установка GnuPG.}}
+  На большинстве дистрибутивов GNU/Linux GnuPG можно поставить из
+  репозитория.  Пример для Ubuntu GNU/Linux:
+\begin{Verbatim}[commandchars=\\\[\]]
+\$ sudo apt-get install gnupg gnupg-agent
+\end{Verbatim}
+\vspace{5 mm}
+Что и зачем ставим:
+\begin{itemize}
+\item \textbf{gnupg} -- свободная реализация OpenPGP
+\item \textbf{gnupg-agent} -- менеджер паролей\newline
+\end{itemize}
+
+На Microsoft Windows можно воспользоваться \textbf{Gpg4win}
+(\url{https://www.gpg4win.org/}).\newline
+
+\bigskip
+
+\RaisedRightHand Руководства от Electronic Frontier Foundation:
+\begin{itemize}
+\item \url{https://ssd.eff.org/ru}
+\end{itemize}
+\end{frame}
+
+
+%%%
+
+\subsection{Криптография с открытым ключом.}
+
+\begin{frame}{\sc{Криптография с открытым ключом.}}
+  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Криптография с
+  открытым ключом (или \textit{ассиметричная криптография}) -- система
+  шифрования и/или электронной подписи, при которой используется пара
+  открытый ключ-закрытый ключ, и открытый ключ передаётся по
+  незащищённому каналу.
+\end{frame}
+
+\begin{frame}{\sc{Криптография с открытым ключом.}}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.6\textheight]{safe-00}
+  \end{figure}
+\end{frame}
+
+
+%%%
+
+\subsection{Создание пары ключей}
+
+\begin{frame}[fragile]{\sc{Создание пары ключей -- 1.}}
+  Пара ``закрытый ключ -- публичный ключ'' может быть создана
+  следующей командой:
+\begin{verbatim}
+$ gpg --gen-key
+\end{verbatim}
+  При создании ключа необходимо:
+  \begin{enumerate}
+  \item Выбрать тип ключа:
+\begin{Verbatim}[commandchars=\\\[\]]
+Please select what kind of key you want:
+   (1) RSA and RSA (default)
+   (2) DSA and Elgamal
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+Your selection? 1 [\RaisedLeftHand]
+\end{Verbatim}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{\sc{Создание пары ключей -- 2.}}
+  \begin{enumerate}
+    \setcounter{enumi}{1}
+  \item Выбрать длину ключа:
+\begin{Verbatim}[commandchars=\\\[\]]
+RSA keys may be between 1024 and 4096 bits long.
+What keysize do you want? (2048) 2048 [\RaisedLeftHand]
+Requested keysize is 2048 bits
+\end{Verbatim}
+  \item Выбрать ``срок годности'' ключа:
+\begin{Verbatim}[commandchars=\\\[\]]
+Please specify how long the key should be valid.
+         0 = key does not expire
+      <n>  = key expires in n days
+      <n>w = key expires in n weeks
+      <n>m = key expires in n months
+      <n>y = key expires in n years
+Key is valid for? (0) 0 [\RaisedLeftHand]
+Key does not expire at all
+Is this correct? (y/N) y [\RaisedLeftHand]
+\end{Verbatim}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{\sc{Создание пары ключей -- 3.}}
+  \begin{enumerate}
+    \setcounter{enumi}{3}
+  \item Указать реальное имя владельца ключа:
+\begin{Verbatim}[commandchars=\\\[\]]
+GnuPG needs to construct a user ID to identify
+  your key.
+
+Real name: Vasiliy I. Pupkin [\RaisedLeftHand]
+\end{Verbatim}
+  \item Указать адрес электронной почты владельца:
+\begin{Verbatim}[commandchars=\\\[\]]
+Email address: vip@example.ru [\RaisedLeftHand]
+\end{Verbatim}
+
+  \item (Опционально) указать комментарий к ключу:
+\begin{Verbatim}[commandchars=\\\[\]]
+Comment:
+\end{Verbatim}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{\sc{Создание пары ключей -- 4.}}
+  \begin{enumerate}
+  \setcounter{enumi}{6}
+\item Проверить указанную информацию и подтвердить её:
+  \begin{Verbatim}[commandchars=\\\[\]]
+You selected this USER-ID:
+    "Vasiliy I. Pupkin <vip@example.ru>"
+
+Change (N)ame, (C)omment, (E)mail
+  or (O)kay/(Q)uit? O [\RaisedLeftHand]
+  \end{Verbatim}
+
+\item Задать пароль для доступа к закрытому ключу:
+  \begin{Verbatim}[commandchars=\\\[\]]
+You need a Passphrase to protect your secret key.
+  \end{Verbatim}
+
+\item ``Пошуметь'' для генерации достаточного количества энтропии:
+  \begin{Verbatim}[commandchars=\\\[\]]
+We need to generate a lot of random bytes. It is a good 
+idea to perform some other action (type on the keyboard,
+move the mouse, utilize the disks) during the prime
+generation; this gives the random number generator a
+better chance to gain enough entropy.
+  \end{Verbatim}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{\sc{Создание пары ключей -- 5.}}
+  Результат:
+  \begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --list-secret-keys
+/home/vip/.gnupg/secring.gpg
+----------------------------
+sec   2048R/F4A78166 2016-08-29
+uid                  Vasiliy I. Pupkin <vip@example.ru>
+ssb   2048R/BAED1502 2016-08-29
+  \end{Verbatim}
+  
+  \EndOfSectionOrnament
+\end{frame}
+
+
+%%%
+
+\subsection{Сертификат отзыва ключа}
+
+\begin{frame}[fragile]{\sc{Сертификат отзыва ключа.}}
+  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Сертификат отзыва
+  ключа (англ. \emph{revocation certificate}) -- Сертификат, который,
+  будучи опубликованным, говорит о том, что связанный с ним ключ более
+  не должен использоваться.\newline
+
+  \begin{itemize}
+  \item Сертификат должен храниться в безопасном месте (например, в
+    сейфе.)
+  \item Сертификат должен быть создан сразу после генерации приватного
+    ключа.\newline
+  \end{itemize}
+  
+  Случаи, при которых необходимо отзывать ключ:
+  \begin{itemize}
+  \item Забыт (утерян) пароль к ключу.
+  \item Ключ был скомпроментирован.
+  \item Ключ более не действителен.
+  \item \ldots{}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\sc{Генерация сертификата отзыва ключа -- 1.}}
+\begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --output revoke.asc --gen-revoke F4A78166
+
+sec  2048R/F4A78166 2016-08-29
+  Vasiliy I. Pupkin <vip@example.ru>
+
+Create a revocation certificate for this key? (y/N) y
+Please select the reason for the revocation:
+  0 = No reason specified
+  1 = Key has been compromised
+  2 = Key is superseded
+  3 = Key is no longer used
+  Q = Cancel
+(Probably you want to select 1 here)
+Your decision? 1 [\RaisedLeftHand]
+\end{Verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{\sc{Генерация сертификата отзыва ключа -- 2.}}
+  Пример сертификата отзыва:\newline
+\footnotesize
+\begin{Verbatim}[commandchars=\\\[\]]
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2
+Comment: A revocation certificate should follow
+
+iQEfBCABCAAJBQJXxAjjAh0CAAoJEHP7tQj0p4FmCpgIAJc8E6NriXKEl/AASVuL
+LdiBrKcRIflk5me92mgKXd85GEFQGxIkwVziwr73CSzb4/As1pcfsxcF6WQw5173
+vwTcml9fIzWTOJIr7qpj1uuTcnZlKagmMKWHh1sztmzX1YpOHV6hJ9t9xW0y1/js
+5osETifAzh2k9b6NvAkniC3rqwL4DU7NwEkygkgjQgqmZFr0BedzgD5lmbcRRarP
+llFLaqT7yGRZQbT9Nn1RBaPXgG7EvptNYuRYIdYEs2rxBNe/x5IHyWypp2Vacsrj
+4PzXTxk2qpwcuRPHOcEtq0DxrdPwHC5fP1uyFXfVIQs/08pZvAdaq9dOrapaPvXs
+UJ8=
+=OkZL
+-----END PGP PUBLIC KEY BLOCK-----
+\end{Verbatim}
+\normalsize
+\EndOfSectionOrnament
+\end{frame}
+
+\begin{frame}[fragile]{\sc{Отзыв ключа.}}
+  \RaisedRightHand Вы не должны выполнять отзыв ключа без причины!
+
+  \begin{itemize}
+  \item Импортировать сертификат:
+    \footnotesize
+\begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --import revoke.asc
+gpg: key F4A78166: "Vasiliy I. Pupkin <vip@example.ru>"
+     revocation certificate imported
+gpg: Total number processed: 1
+gpg:    new key revocations: 1
+gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
+gpg: depth: 0  valid:   3  signed:   0
+     trust: 0-, 0q, 0n, 0m, 0f, 3u
+\end{Verbatim}
+    \normalsize
+  \item Загрузить обновлённый ключ на сервер:
+    \footnotesize
+\begin{Verbatim}[commandchars=\\\[\]]
+\$ gpg --keyserver gpg.mit.edu --send-keys F4A78166
+\end{Verbatim}
+    \normalsize
   \end{itemize}
 \end{frame}
 
