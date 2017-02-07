@@ -337,6 +337,7 @@ $ gpg --gen-key
   При создании ключа необходимо:
   \begin{enumerate}
   \item Выбрать тип ключа:
+    \small
 \begin{Verbatim}[commandchars=\\\[\]]
 Please select what kind of key you want:
    (1) RSA and RSA (default)
@@ -345,6 +346,7 @@ Please select what kind of key you want:
    (4) RSA (sign only)
 Your selection? 1 [\RaisedLeftHand]
 \end{Verbatim}
+\normalsize
     \end{enumerate}
 \end{frame}
 
@@ -352,12 +354,15 @@ Your selection? 1 [\RaisedLeftHand]
   \begin{enumerate}
     \setcounter{enumi}{1}
   \item Выбрать длину ключа:
+    \small
 \begin{Verbatim}[commandchars=\\\[\]]
 RSA keys may be between 1024 and 4096 bits long.
 What keysize do you want? (2048) 2048 [\RaisedLeftHand]
 Requested keysize is 2048 bits
 \end{Verbatim}
-  \item Выбрать ``срок годности'' ключа:
+\normalsize
+\item Выбрать ``срок годности'' ключа:
+  \small
 \begin{Verbatim}[commandchars=\\\[\]]
 Please specify how long the key should be valid.
          0 = key does not expire
@@ -369,6 +374,7 @@ Key is valid for? (0) 0 [\RaisedLeftHand]
 Key does not expire at all
 Is this correct? (y/N) y [\RaisedLeftHand]
 \end{Verbatim}
+\normalsize
     \end{enumerate}
 \end{frame}
 
@@ -376,6 +382,7 @@ Is this correct? (y/N) y [\RaisedLeftHand]
   \begin{enumerate}
     \setcounter{enumi}{3}
   \item Указать реальное имя владельца ключа:
+    \small
 \begin{Verbatim}[commandchars=\\\[\]]
 GnuPG needs to construct a user ID to identify
   your key.
@@ -398,6 +405,7 @@ Comment:
   \begin{enumerate}
   \setcounter{enumi}{6}
 \item Проверить указанную информацию и подтвердить её:
+  \small
   \begin{Verbatim}[commandchars=\\\[\]]
 You selected this USER-ID:
     "Vasiliy I. Pupkin <vip@example.ru>"
@@ -405,13 +413,15 @@ You selected this USER-ID:
 Change (N)ame, (C)omment, (E)mail
   or (O)kay/(Q)uit? O [\RaisedLeftHand]
   \end{Verbatim}
-
+  \normalsize
 \item Задать пароль для доступа к закрытому ключу:
+  \small
   \begin{Verbatim}[commandchars=\\\[\]]
 You need a Passphrase to protect your secret key.
   \end{Verbatim}
-
+  \normalsize
 \item ``Пошуметь'' для генерации достаточного количества энтропии:
+  \small
   \begin{Verbatim}[commandchars=\\\[\]]
 We need to generate a lot of random bytes. It is a good 
 idea to perform some other action (type on the keyboard,
@@ -419,6 +429,7 @@ move the mouse, utilize the disks) during the prime
 generation; this gives the random number generator a
 better chance to gain enough entropy.
   \end{Verbatim}
+  \normalsize
 \end{enumerate}
 \end{frame}
 
@@ -463,7 +474,8 @@ ssb   2048R/BAED1502 2016-08-29
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{\sc{Генерация сертификата отзыва ключа -- 1.}}
+\begin{frame}[fragile]{\sc{Генерация сертификата отзыва ключа.}}
+  \small
 \begin{Verbatim}[commandchars=\\\[\]]
 \$ gpg --output revoke.asc --gen-revoke F4A78166
 
@@ -479,26 +491,6 @@ Please select the reason for the revocation:
   Q = Cancel
 (Probably you want to select 1 here)
 Your decision? 1 [\RaisedLeftHand]
-\end{Verbatim}
-\end{frame}
-
-\begin{frame}[fragile]{\sc{Генерация сертификата отзыва ключа -- 2.}}
-  Пример сертификата отзыва:\newline
-\footnotesize
-\begin{Verbatim}[commandchars=\\\[\]]
------BEGIN PGP PUBLIC KEY BLOCK-----
-Version: GnuPG v2
-Comment: A revocation certificate should follow
-
-iQEfBCABCAAJBQJXxAjjAh0CAAoJEHP7tQj0p4FmCpgIAJc8E6NriXKEl/AASVuL
-LdiBrKcRIflk5me92mgKXd85GEFQGxIkwVziwr73CSzb4/As1pcfsxcF6WQw5173
-vwTcml9fIzWTOJIr7qpj1uuTcnZlKagmMKWHh1sztmzX1YpOHV6hJ9t9xW0y1/js
-5osETifAzh2k9b6NvAkniC3rqwL4DU7NwEkygkgjQgqmZFr0BedzgD5lmbcRRarP
-llFLaqT7yGRZQbT9Nn1RBaPXgG7EvptNYuRYIdYEs2rxBNe/x5IHyWypp2Vacsrj
-4PzXTxk2qpwcuRPHOcEtq0DxrdPwHC5fP1uyFXfVIQs/08pZvAdaq9dOrapaPvXs
-UJ8=
-=OkZL
------END PGP PUBLIC KEY BLOCK-----
 \end{Verbatim}
 \normalsize
 \EndOfSectionOrnament
@@ -528,6 +520,129 @@ gpg: depth: 0  valid:   3  signed:   0
 \end{Verbatim}
     \normalsize
   \end{itemize}
+\end{frame}
+
+
+%%%
+
+\subsection{Электронная подпись}
+
+\begin{frame}[fragile]{\sc{Электронная подпись.}}
+  Электронная подпись обеспечивает следующие свойства:
+  \begin{itemize}
+  \item \textbf{Целостность} -- гарантия отсутствия искажений данных с
+    момента формирования подписи.
+  \item \textbf{Авторство} -- принадлежность подписи владельцу ключа.
+  \item \textbf{Неотказуемость} -- фиксирование невозможности отказа от
+    авторства
+  \end{itemize}
+
+  \vspace{5 mm}
+
+  Примеры практического применения электронных подписей:
+  \begin{itemize}
+  \item Подпись важных писем и документов.
+  \item Подпись релизов пакетов в DVCS Git.
+  \item Подпись дистрибутивов программ.
+  \item \ldots{}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\sc{Электронная подпись файлов.}}
+  Подписать файл можно следующим образом:
+\begin{verbatim}
+$ touch important-file.txt
+$ gpg --detach-sign important-file.txt
+\end{verbatim}
+
+  Электронная подпись будет сохранена файле
+  \texttt{important-file.txt.sig}:
+\begin{verbatim}
+$ ls important-file*
+important-file.txt important-file.txt.sig
+\end{verbatim}
+
+  Проверка подписи:
+\begin{verbatim}
+$ gpg --verify important-file.txt.sig
+\end{verbatim}
+\end{frame}
+
+% \begin{frame}[fragile]{\sc{Проверка электронной подписи -- 1.}}
+%   \textbf{Задача: проверить подпись дистрибутива ПО Bash.}
+%   Скачиваем дистрибутив Bash и электронную подпись архива:
+% \begin{verbatim}
+% $ wget ftp://ftp.cwru.edu/pub/bash/bash-4.3.tar.gz
+% $ wget ftp://ftp.cwru.edu/pub/bash/bash-4.3.tar.gz.sig
+% \end{verbatim}
+%   Проверяем подпись:
+% \begin{verbatim}
+% $ gpg --verify bash-4.3.tar.gz.sig
+% \end{verbatim}
+%   \footnotesize
+% \begin{Verbatim}[commandchars=\\\[\]]
+% gpg: assuming signed data in 'bash-4.3.tar.gz'
+% gpg: Signature made Tue 25 Feb 2014 06:36:04 PM MSK
+%      using DSA key ID 64EA74AB
+% gpg: [\color[red]Can't check signature: No public key]
+% \end{Verbatim}
+%   \normalsize
+
+%   \vspace{5 mm}
+
+%   Опаньки!  У нас нет публичного ключа для \texttt{64EA74AB}, которым
+%   подписан архив!
+% \end{frame}
+
+% 
+% \begin{frame}[fragile]{\sc{Проверка электронной подписи -- 2.}}
+%   Запросим ключ с сервера ключей:
+%   \begin{Verbatim}[commandchars=\\\[\]]
+% \$ gpg --recv-keys 64EA74AB
+%   \end{Verbatim}
+%   \footnotesize
+%   \begin{Verbatim}[commandchars=\\\[\]]
+% gpg: requesting key 64EA74AB from hkp server
+%      keys.gnupg.net
+% gpg: key 64EA74AB: public key "Chet Ramey <chet@cwru.edu>" imported
+% gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
+% gpg: depth: 0  valid:   3  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 3u
+% gpg: Total number processed: 1
+% gpg:               imported: 1
+%   \end{Verbatim}
+%   \normalsize
+% \end{frame}
+
+% \begin{frame}[fragile]{Более жизненный пример -- 3}
+%   Попробуем проверить подпись ещё раз:
+%   \begin{Verbatim}[commandchars=\\\[\]]
+% \$ gpg --verify bash-4.3.tar.gz.sig
+%   \end{Verbatim}
+%   \footnotesize
+%   \begin{Verbatim}[commandchars=\\\[\]]
+% gpg: assuming signed data in 'bash-4.3.tar.gz'
+% gpg: Signature made Tue 25 Feb 2014 06:36:04 PM MSK
+%      using DSA key ID 64EA74AB
+% gpg: Good signature from "Chet Ramey <chet@cwru.edu>"
+%      [unknown]
+% gpg: WARNING: This key is not certified with a
+% gpg:          trusted signature!
+% gpg:          There is no indication that the signature
+% gpg:          belongs to the owner. [\RaisedLeftHand]
+% Primary key fingerprint:
+%   7C01 35FB 088A AF6C 66C6  50B9 BB58 69F0 64EA 74AB
+%   \end{Verbatim}
+%   \normalsize
+
+%   \vspace{5 mm}
+
+%   Успех!  Однако у нас пока нет доказательств того, что подпись
+%   принадлежит владельцу, поскольку публичный ключ \texttt{64EA74AB} не
+%   заверен ни одной из доверенных подписей.
+% \end{frame}
+
+\begin{frame}{\sc{Шифрование.}}
+
 \end{frame}
 
 
