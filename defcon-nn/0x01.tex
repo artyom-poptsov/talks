@@ -80,6 +80,8 @@
 \hypersetup{linkbordercolor=black}
 \hypersetup{urlcolor=black}
 
+\beamertemplatenavigationsymbolsempty
+
 
 %%% Macros.
 
@@ -121,9 +123,34 @@
 
 %%%
 
-\section{\sc{Выбор Инструмента.}}
+\section{\sc{Постановка задачи}}
 
-\begin{frame}{\sc{Выбор Инструмента.}}
+\begin{frame}{\sc{Постановка задачи.}}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=1.0\textwidth]{network-1}
+  \end{figure}
+  \RaisedRightHand Необходимо обеспечить три параметра:
+  \begin{itemize}
+  \item Конфиденциальность
+  \item Целостность
+  \item Аутентификацию
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\sc{Реальность.}}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=1.0\textwidth]{network-2}
+  \end{figure}
+\end{frame}
+
+
+%%%
+
+\section{\sc{Выбор инструмента.}}
+
+\begin{frame}{\sc{Выбор инструмента.}}
   \begin{quote}
     ``Криптография -- единственный набор инструментов для обеспечения
     безопасности в интернете, который у нас есть.  Мы открываем наш
@@ -274,8 +301,8 @@
 
   Задачи, решаемые с помощью GnuPG:
   \begin{itemize}
-  \item Шифрование данных
   \item Электронная подпись данных
+  \item Шифрование данных
   \end{itemize}
 \end{frame}
 
@@ -297,7 +324,7 @@
 
 \bigskip
 
-\RaisedRightHand Руководства от Electronic Frontier Foundation:
+\RaisedRightHand Руководство от Electronic Frontier Foundation:
 \begin{itemize}
 \item \url{https://ssd.eff.org/ru}
 \end{itemize}
@@ -525,7 +552,7 @@ gpg: depth: 0  valid:   3  signed:   0
 
 %%%
 
-\subsection{Электронная подпись}
+\subsection{Электронная подпись.}
 
 \begin{frame}[fragile]{\sc{Электронная подпись.}}
   Электронная подпись обеспечивает следующие свойства:
@@ -568,83 +595,93 @@ $ gpg --verify important-file.txt.sig
 \end{verbatim}
 \end{frame}
 
-% \begin{frame}[fragile]{\sc{Проверка электронной подписи -- 1.}}
-%   \textbf{Задача: проверить подпись дистрибутива ПО Bash.}
-%   Скачиваем дистрибутив Bash и электронную подпись архива:
-% \begin{verbatim}
-% $ wget ftp://ftp.cwru.edu/pub/bash/bash-4.3.tar.gz
-% $ wget ftp://ftp.cwru.edu/pub/bash/bash-4.3.tar.gz.sig
-% \end{verbatim}
-%   Проверяем подпись:
-% \begin{verbatim}
-% $ gpg --verify bash-4.3.tar.gz.sig
-% \end{verbatim}
-%   \footnotesize
-% \begin{Verbatim}[commandchars=\\\[\]]
-% gpg: assuming signed data in 'bash-4.3.tar.gz'
-% gpg: Signature made Tue 25 Feb 2014 06:36:04 PM MSK
-%      using DSA key ID 64EA74AB
-% gpg: [\color[red]Can't check signature: No public key]
-% \end{Verbatim}
-%   \normalsize
+
+%%%
 
-%   \vspace{5 mm}
+\subsection{Шифрование.}
 
-%   Опаньки!  У нас нет публичного ключа для \texttt{64EA74AB}, которым
-%   подписан архив!
-% \end{frame}
+\begin{frame}[fragile]{\sc{Шифрование.}}
+  \begin{enumerate}
+    
+  \item \textbf{Ассиметричное} шифрование документа для доктора
+    Ватсона с помощью его открытого ключа:
+\begin{verbatim}
+$ gpg --output doc.gpg --encrypt --recipient \
+    dr.watson@example.ru doc
+\end{verbatim}
 
-% 
-% \begin{frame}[fragile]{\sc{Проверка электронной подписи -- 2.}}
-%   Запросим ключ с сервера ключей:
-%   \begin{Verbatim}[commandchars=\\\[\]]
-% \$ gpg --recv-keys 64EA74AB
-%   \end{Verbatim}
-%   \footnotesize
-%   \begin{Verbatim}[commandchars=\\\[\]]
-% gpg: requesting key 64EA74AB from hkp server
-%      keys.gnupg.net
-% gpg: key 64EA74AB: public key "Chet Ramey <chet@cwru.edu>" imported
-% gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
-% gpg: depth: 0  valid:   3  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 3u
-% gpg: Total number processed: 1
-% gpg:               imported: 1
-%   \end{Verbatim}
-%   \normalsize
-% \end{frame}
+  Расшифровка ранее зашифрованного документа с помощью приватного
+  ключа доктора Ватсона:
+\begin{verbatim}
+$ gpg --output doc --decrypt doc.gpg
+\end{verbatim}
 
-% \begin{frame}[fragile]{Более жизненный пример -- 3}
-%   Попробуем проверить подпись ещё раз:
-%   \begin{Verbatim}[commandchars=\\\[\]]
-% \$ gpg --verify bash-4.3.tar.gz.sig
-%   \end{Verbatim}
-%   \footnotesize
-%   \begin{Verbatim}[commandchars=\\\[\]]
-% gpg: assuming signed data in 'bash-4.3.tar.gz'
-% gpg: Signature made Tue 25 Feb 2014 06:36:04 PM MSK
-%      using DSA key ID 64EA74AB
-% gpg: Good signature from "Chet Ramey <chet@cwru.edu>"
-%      [unknown]
-% gpg: WARNING: This key is not certified with a
-% gpg:          trusted signature!
-% gpg:          There is no indication that the signature
-% gpg:          belongs to the owner. [\RaisedLeftHand]
-% Primary key fingerprint:
-%   7C01 35FB 088A AF6C 66C6  50B9 BB58 69F0 64EA 74AB
-%   \end{Verbatim}
-%   \normalsize
-
-%   \vspace{5 mm}
-
-%   Успех!  Однако у нас пока нет доказательств того, что подпись
-%   принадлежит владельцу, поскольку публичный ключ \texttt{64EA74AB} не
-%   заверен ни одной из доверенных подписей.
-% \end{frame}
-
-\begin{frame}{\sc{Шифрование.}}
-
+\item Или можно использовать \textbf{симметричное} шифрование:
+\begin{verbatim}
+$ gpg --output doc.gpg --symmetric doc
+\end{verbatim}
+  \end{enumerate}
 \end{frame}
 
+
+%%%
+
+\subsection{Недостатки GnuPG.}
+
+\begin{frame}{\sc{Недостатки GnuPG -- 1.}}
+  \begin{enumerate}
+  \item Используются долгоживущие закрытые ключи для
+    шифрования.
+  \item Благодаря цифровым подписям можно с уверенностью сказать, кто
+    автор сообщения, и доказать авторство третьим лицам.
+  \item Сложен в использовании.
+  \end{enumerate}
+  \bigskip
+  \RaisedRightHand GnuPG не обладает свойствами, необходимыми для
+обеспечения приватного разговора через IM-протокол.
+\end{frame}
+
+\begin{frame}{\sc{Недостатки GnuPG -- 2.}}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=1\textwidth]{network-3}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\sc{Недостатки GnuPG -- 3.}}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=1\textwidth]{network-4}
+  \end{figure}
+\end{frame}
+
+
+%%%
+
+\section{\sc{Off-the-Record Messaging.}}
+
+\begin{frame}{\sc{Off-the-Record Messaging.}}
+  \RaisedRightHand Цель Off-the-Record Messaging (OTR) – обеспечить
+  для IM свойства, присущие обычным беседам.
+
+  Возможности:
+  \begin{itemize}
+  \item \textbf{Шифрование} 
+  \item \textbf{Аутентификация}
+  \item \textbf{Отрицаемая аутентификация} (англ. \textit{deniable
+      authentication}) не позволяет доказать аутентичность собеседника
+    третьим лицам.
+  \item \textbf{Совершенная прямая секретность} (англ. \textit{perfect
+      forward secrecy}) -- компроментация долговременных ключей не
+    приводит к компроментации сессионных ключей.
+
+  \end{itemize}
+  Недостатки:
+  \begin{itemize}
+  \item Хорошо работает только с протоколами общения в
+    реальном времени.
+  \end{itemize}
+\end{frame}
 
 %%%
 
