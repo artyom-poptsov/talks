@@ -125,7 +125,7 @@
 
 %%%
 
-\section{\sc{Постановка задачи}}
+\section{\sc{Постановка задачи.}}
 
 \begin{frame}{\sc{Постановка задачи.}}
   \begin{figure}[htb]
@@ -142,8 +142,12 @@
 
 \begin{frame}{\sc{Реальность.}}
   \begin{figure}[htb]
-    \centering
     \includegraphics[width=1.0\textwidth]{network-2}
+    \llap{
+      \put(-250,100){
+        \includegraphics[height=0.4\textheight]{Pd_Moriarty_by_Sidney_Paget}
+      }
+    }
   \end{figure}
 \end{frame}
 
@@ -299,7 +303,12 @@
   (GnuPG) -- свободная программа шифрования информации и создания
   электронных цифровых подписей (ЭЦП).
 
-  \vspace{5 mm}
+  \begin{itemize}
+  \item GnuPG относительно удобен в использовании, есть дружественные
+    графические интерфейсы.
+  \item Программа доступна на большинстве платформ и интегрируется с
+    рабочим окружением пользователя.
+  \end{itemize}
 
   Задачи, решаемые с помощью GnuPG:
   \begin{itemize}
@@ -337,15 +346,25 @@
 
 \subsection{Криптография с открытым ключом.}
 
-\begin{frame}{\sc{Криптография с открытым ключом.}}
-  \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Криптография с
-  открытым ключом (или \textit{ассиметричная криптография}) -- система
-  шифрования и/или электронной подписи, при которой используется пара
-  открытый ключ-закрытый ключ, и открытый ключ передаётся по
-  незащищённому каналу.
+\begin{frame}{\sc{Криптография с открытым ключом -- 1.}}
+  \begin{columns}
+    \begin{column}{0.7\textwidth}
+      \raisebox{-.30em}{\Large\HandRight}\hspace{.25em} Криптография с
+      открытым ключом (или \textit{ассиметричная криптография}) -- система
+      шифрования и/или электронной подписи, при которой используется пара
+      открытый ключ-закрытый ключ, и открытый ключ передаётся по
+      незащищённому каналу.
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \begin{figure}[htb]
+        \centering
+        \includegraphics[height=0.8\textheight]{keys}
+      \end{figure}
+    \end{column}
+  \end{columns}
 \end{frame}
 
-\begin{frame}{\sc{Криптография с открытым ключом.}}
+\begin{frame}{\sc{Криптография с открытым ключом -- 2.}}
   \begin{figure}[htb]
     \centering
     \includegraphics[height=0.6\textheight]{safe-00}
@@ -399,7 +418,7 @@ Please specify how long the key should be valid.
       <n>w = key expires in n weeks
       <n>m = key expires in n months
       <n>y = key expires in n years
-Key is valid for? (0) 0 [\RaisedLeftHand]
+Key is valid for? (0) 1y [\RaisedLeftHand]
 Key does not expire at all
 Is this correct? (y/N) y [\RaisedLeftHand]
 \end{Verbatim}
@@ -549,6 +568,7 @@ gpg: depth: 0  valid:   3  signed:   0
 \end{Verbatim}
     \normalsize
   \end{itemize}
+  \EndOfSectionOrnament
 \end{frame}
 
 
@@ -595,6 +615,8 @@ important-file.txt important-file.txt.sig
 \begin{verbatim}
 $ gpg --verify important-file.txt.sig
 \end{verbatim}
+
+  \EndOfSectionOrnament
 \end{frame}
 
 
@@ -623,6 +645,8 @@ $ gpg --output doc --decrypt doc.gpg
 $ gpg --output doc.gpg --symmetric doc
 \end{verbatim}
   \end{enumerate}
+
+  \EndOfSectionOrnament
 \end{frame}
 
 
@@ -636,7 +660,7 @@ $ gpg --output doc.gpg --symmetric doc
     шифрования.
   \item Благодаря цифровым подписям можно с уверенностью сказать, кто
     автор сообщения, и доказать авторство третьим лицам.
-  \item Сложен в использовании.
+  \item Относительно сложен в использовании.
   \end{enumerate}
   \bigskip
   \RaisedRightHand GnuPG не обладает свойствами, необходимыми для
@@ -654,6 +678,9 @@ $ gpg --output doc.gpg --symmetric doc
   \begin{figure}[htb]
     \centering
     \includegraphics[width=1\textwidth]{network-4}
+    \put(-120,150){
+      Prof. Moriarty strikes back!
+    }
   \end{figure}
 \end{frame}
 
@@ -684,29 +711,62 @@ $ gpg --output doc.gpg --symmetric doc
     реальном времени.
   \end{itemize}
 \end{frame}
+
+\begin{frame}{\sc{IM-клиенты, поддерживающие OTR.}}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      Из коробки:
+      \begin{itemize}
+      \item Adium
+      \item BitlBee
+      \item ChatSecure
+      \item IM+
+      \item Jitsi
+      \item LeechCraft
+      \item MCabber
+      \item Psi+
+      \item Xabber
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      С использованием плагина:
+      \begin{itemize}
+      \item Pidgin (Gaim) -- Через плагин \texttt{pidgin-otr}
+      \item Kopete
+      \item Miranda IM
+      \item irssi
+      \item Gajim
+      \item Tkabber
+      \item Vacuum-IM
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
 
 %%%
 
-\subsection{СПАСИБО ЗА ВНИМАНИЕ.}
+\subsection{Спасибо за внимание!}
 
-\begin{frame}{Спасибо за внимание!}
+\begin{frame}{\sc{Спасибо за внимание!}}
   \large
 
-  Эл. почта: \url{poptsov.artyom@gmail.com}
-
+  Контакты:
+  \begin{itemize}
+  \item Эл. почта: \url{poptsov.artyom@gmail.com}
+  \item Отпечаток ключа GnuPG: D0C2 EAC1 3310 822D 98DE  B57C E9C5 A2D9 0898 A02F
+  \end{itemize}
   \medskip
 
   Презентация и её ``исходники'' под лицензией Creative Commons:
   \url{github.com/artyom-poptsov/talks/tree/master/defcon-nn/} \\[10pt]
-
-  Спасибо, что выслушали  :-) \\[30pt]
 
   \bigskip
 
   \huge Вопросы?
 \end{frame}
 
-\begin{frame}{Лицензия}
+\begin{frame}{\sc{Лицензия.}}
   Copyright \textcopyright 2017 Artyom V. Poptsov
   <poptsov.artyom@gmail.com> \newline
 
@@ -716,6 +776,22 @@ $ gpg --output doc.gpg --symmetric doc
   Данная работа распространяется на условиях лицензии Creative Commons
   Attribution-ShareAlike 4.0 International:
   \url{https://creativecommons.org/licenses/by-sa/4.0/}
+\end{frame}
+
+\begin{frame}{\sc{Использованные материалы.}}
+  Использованные источники:
+  \begin{itemize}
+  \item Ian Goldberg, ``OTR messaging'' (CC-BY-NC-ND 3.0) --
+    https://archive.org/details/IanGoldberg-OtrMessaging
+  \end{itemize}
+  Основа для дизайна:
+  \begin{itemize}
+  \item Richardson, Milton Thomas (ed.), ``Practical blacksmithing'',
+    volume 1 (PD) --
+    https://archive.org/details/practicalblacksm01richuoft
+  \item Richardson, Milton Thomas (ed.), ``Practical blacksmithing'',
+    volume 2 (PD) -- https://archive.org/details/practicalblacksm00rich
+  \end{itemize}
 \end{frame}
 
 
