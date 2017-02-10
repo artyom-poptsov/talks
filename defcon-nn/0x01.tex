@@ -179,7 +179,7 @@
     \begin{column}{0.4\textwidth}
       \begin{figure}[htb]
         \centering
-        \includegraphics[width=1.0\textwidth]{popularsciencemo09newy_0033.png}
+        \includegraphics[width=1.0\textwidth]{popularsciencemo09newy_0033}
       \end{figure}
       \end{column}
   \end{columns}
@@ -324,20 +324,18 @@
 \$ sudo apt-get install gnupg gnupg-agent
 \end{Verbatim}
 \vspace{5 mm}
-Что и зачем ставим:
-\begin{itemize}
-\item \textbf{gnupg} -- свободная реализация OpenPGP
-\item \textbf{gnupg-agent} -- менеджер паролей\newline
-\end{itemize}
 
 На Microsoft Windows можно воспользоваться \textbf{Gpg4win}
 (\url{https://www.gpg4win.org/}).\newline
 
-\bigskip
-
 \RaisedRightHand Руководство от Electronic Frontier Foundation:
 \begin{itemize}
 \item \url{https://ssd.eff.org/ru}
+\end{itemize}
+\RaisedRightHand ``Самозащита электронной почты'' от Free Software
+Foundation:
+\begin{itemize}
+\item \url{https://emailselfdefense.fsf.org/ru/}
 \end{itemize}
 \end{frame}
 
@@ -432,9 +430,6 @@ Is this correct? (y/N) y [\RaisedLeftHand]
   \item Указать реальное имя владельца ключа:
     \small
 \begin{Verbatim}[commandchars=\\\[\]]
-GnuPG needs to construct a user ID to identify
-  your key.
-
 Real name: Vasiliy I. Pupkin [\RaisedLeftHand]
 \end{Verbatim}
   \item Указать адрес электронной почты владельца:
@@ -442,16 +437,7 @@ Real name: Vasiliy I. Pupkin [\RaisedLeftHand]
 Email address: vip@example.ru [\RaisedLeftHand]
 \end{Verbatim}
 
-  \item (Опционально) указать комментарий к ключу:
-\begin{Verbatim}[commandchars=\\\[\]]
-Comment:
-\end{Verbatim}
-    \end{enumerate}
-\end{frame}
-
-\begin{frame}[fragile]{\sc{Создание пары ключей -- 4.}}
-  \begin{enumerate}
-  \setcounter{enumi}{6}
+  \item (Опционально) указать комментарий к ключу.
 \item Проверить указанную информацию и подтвердить её:
   \small
   \begin{Verbatim}[commandchars=\\\[\]]
@@ -462,26 +448,13 @@ Change (N)ame, (C)omment, (E)mail
   or (O)kay/(Q)uit? O [\RaisedLeftHand]
   \end{Verbatim}
   \normalsize
-\item Задать пароль для доступа к закрытому ключу:
-  \small
-  \begin{Verbatim}[commandchars=\\\[\]]
-You need a Passphrase to protect your secret key.
-  \end{Verbatim}
-  \normalsize
-\item ``Пошуметь'' для генерации достаточного количества энтропии:
-  \small
-  \begin{Verbatim}[commandchars=\\\[\]]
-We need to generate a lot of random bytes. It is a good 
-idea to perform some other action (type on the keyboard,
-move the mouse, utilize the disks) during the prime
-generation; this gives the random number generator a
-better chance to gain enough entropy.
-  \end{Verbatim}
-  \normalsize
-\end{enumerate}
+\item Задать пароль для доступа к закрытому ключу.
+\item ``Пошуметь'' для генерации достаточного количества энтропии.
+    \end{enumerate}
+
 \end{frame}
 
-\begin{frame}[fragile]{\sc{Создание пары ключей -- 5.}}
+\begin{frame}[fragile]{\sc{Создание пары ключей -- 4.}}
   Результат:
   \begin{Verbatim}[commandchars=\\\[\]]
 \$ gpg --list-secret-keys
@@ -491,7 +464,6 @@ sec   2048R/F4A78166 2016-08-29
 uid                  Vasiliy I. Pupkin <vip@example.ru>
 ssb   2048R/BAED1502 2016-08-29
   \end{Verbatim}
-  
   \EndOfSectionOrnament
 \end{frame}
 
@@ -655,6 +627,33 @@ $ gpg --output doc.gpg --symmetric doc
 \subsection{Недостатки GnuPG.}
 
 \begin{frame}{\sc{Недостатки GnuPG -- 1.}}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=1\textwidth]{network-3}
+    \llap{
+      \put(-250,100){
+        \includegraphics[height=0.4\textheight]{Pd_Moriarty_by_Sidney_Paget}
+      }
+    }
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\sc{Недостатки GnuPG -- 2.}}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=1\textwidth]{network-4}
+    \put(-120,150){
+      Prof. Moriarty strikes back!
+    }
+    \llap{
+      \put(-250,100){
+        \includegraphics[height=0.4\textheight]{Pd_Moriarty_by_Sidney_Paget}
+      }
+    }
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\sc{Недостатки GnuPG -- 3.}}
   \begin{enumerate}
   \item Используются долгоживущие закрытые ключи для
     шифрования.
@@ -667,23 +666,6 @@ $ gpg --output doc.gpg --symmetric doc
 обеспечения приватного разговора через IM-протокол.
 \end{frame}
 
-\begin{frame}{\sc{Недостатки GnuPG -- 2.}}
-  \begin{figure}[htb]
-    \centering
-    \includegraphics[width=1\textwidth]{network-3}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{\sc{Недостатки GnuPG -- 3.}}
-  \begin{figure}[htb]
-    \centering
-    \includegraphics[width=1\textwidth]{network-4}
-    \put(-120,150){
-      Prof. Moriarty strikes back!
-    }
-  \end{figure}
-\end{frame}
-
 
 %%%
 
@@ -691,7 +673,7 @@ $ gpg --output doc.gpg --symmetric doc
 
 \begin{frame}{\sc{Off-the-Record Messaging.}}
   \RaisedRightHand Цель Off-the-Record Messaging (OTR) – обеспечить
-  для IM свойства, присущие обычным беседам.
+  для IM свойства, присущие обычным беседам.\newline
 
   Возможности:
   \begin{itemize}
@@ -743,6 +725,63 @@ $ gpg --output doc.gpg --symmetric doc
   \end{columns}
 \end{frame}
 
+\begin{frame}[fragile]{\sc{Установка и настройка pidgin-otr -- 1.}}
+\begin{verbatim}
+$ sudo apt-get install pidgin-otr
+\end{verbatim}
+Из меню ``Средства'' открываем список модулей и включаем OTR:
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \begin{figure}[htb]
+      \centering
+      \includegraphics[clip,width=0.5\textheight]{pidgin-otr-1}
+      \caption{Открытие списка модулей}
+    \end{figure}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    %% Column2
+    \label{sec-3-10-2}
+
+    \begin{figure}[htb]
+      \centering
+      \includegraphics[clip,height=0.5\textheight]{./pidgin-otr-2}
+      \caption{Включение модуля}
+    \end{figure}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\sc{Установка и настройка pidgin-otr -- 2.}}
+\begin{itemize}
+\item Необходимо сгенерировать ключ (нажать на кнопку ``Создать'')
+    \begin{figure}[htb]
+    \centering
+    \includegraphics[clip,width=0.8\textwidth]{./pidgin-otr-3.png}
+    \caption{Генерация закрытого ключа}
+    \end{figure}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\sc{Установка и настройка pidgin-otr -- 3.}}
+Далее следует аутентифицировать собеседника при первом разговоре:
+\begin{columns}
+\begin{column}{0.5\textwidth}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[clip,width=0.5\textheight]{./pidgin-otr-4}
+    \caption{Аутентификация с помощью вопроса}
+  \end{figure}
+\end{column}
+\begin{column}{0.5\textwidth}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[clip,width=0.5\textheight]{./pidgin-otr-5}
+    \caption{Аутентификация по отпечатку ключа}
+  \end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
 
 %%%
 
@@ -753,6 +792,7 @@ $ gpg --output doc.gpg --symmetric doc
 
   Контакты:
   \begin{itemize}
+  \item Web-сайт: poptsov-artyom.narod.ru
   \item Эл. почта: \url{poptsov.artyom@gmail.com}
   \item Отпечаток ключа GnuPG: D0C2 EAC1 3310 822D 98DE  B57C E9C5 A2D9 0898 A02F
   \end{itemize}
@@ -782,15 +822,21 @@ $ gpg --output doc.gpg --symmetric doc
   Использованные источники:
   \begin{itemize}
   \item Ian Goldberg, ``OTR messaging'' (CC-BY-NC-ND 3.0) --
-    https://archive.org/details/IanGoldberg-OtrMessaging
+    \url{https://archive.org/details/IanGoldberg-OtrMessaging}
+  \item Nikita Borisov, Ian Goldberg, Eric Brewer
+    (2004-10-28). ``Off-the-Record Communication, or, Why Not To Use
+    PGP'': \url{https://otr.cypherpunks.ca/otr-wpes.pdf}
+  \item Ian Goldberg, ``Off-the-Record Messaging: Useful Security and
+    Privacy for IM'': \url{https://www.youtube.com/watch?v=uI1x-z5oafc}
   \end{itemize}
   Основа для дизайна:
   \begin{itemize}
   \item Richardson, Milton Thomas (ed.), ``Practical blacksmithing'',
     volume 1 (PD) --
-    https://archive.org/details/practicalblacksm01richuoft
+    \url{https://archive.org/details/practicalblacksm01richuoft}
   \item Richardson, Milton Thomas (ed.), ``Practical blacksmithing'',
-    volume 2 (PD) -- https://archive.org/details/practicalblacksm00rich
+    volume 2 (PD) --
+    \url{https://archive.org/details/practicalblacksm00rich}
   \end{itemize}
 \end{frame}
 
