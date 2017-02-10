@@ -9,5 +9,7 @@
    Основа для дизайна:
    - Richardson, Milton Thomas (ed.), [[https://archive.org/details/practicalblacksm01richuoft]["Practical blacksmithing"]], volume 1 (PD)
    - Richardson, Milton Thomas (ed.), [[https://archive.org/details/practicalblacksm00rich]["Practical blacksmithing"]], volume 2 (PD)
+   - https://commons.wikimedia.org/wiki/File:A_few_of_the_keys_-_p.040.jpg
+   - https://commons.wikimedia.org/wiki/File:Pd_Moriarty_by_Sidney_Paget.gif
 
 
