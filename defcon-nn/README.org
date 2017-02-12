@@ -3,6 +3,9 @@
    Cryptography, security, GnuPG, OTR
 ** Зависимости
    - [[https://ctan.org/pkg/pgfornament][pgfornament]]
+** Лицензия
+   Данная работа распространяется на условиях лицензии [[https://creativecommons.org/licenses/by-sa/4.0/][Creative
+   Commons Attribution-ShareAlike 4.0 International]].
 ** Использованные материалы
    Использованные источники:
    - Ian Goldberg, [[https://archive.org/details/IanGoldberg-OtrMessaging][OTR messaging]] ([[http://creativecommons.org/licenses/by-nc-nd/3.0/][CC-BY-NC-ND 3.0]])
