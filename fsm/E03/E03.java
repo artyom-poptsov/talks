@@ -41,7 +41,7 @@ import java.util.Stack;
  * Пример запуска с подачи текста самой же программы на обработку:
  *   $ cat E04.java | java E04
  */
-public class E04 {
+public class E03 {
     // Возможные состояние конечного автомата
     static final int DEFAULT       = 0;
     static final int CHECK_COMMENT = 1;
