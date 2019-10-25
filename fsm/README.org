@@ -1,0 +1,8 @@
+* Автоматное программирование
+  В данном репозитории находятся материалы к презентации по автоматному
+  программированию.
+
+* Слайды
+  https://docs.google.com/presentation/d/1OktaBmZdW9O4Xau-KHF2McHfZVEJ3Q4FavcdLMuJqUw/edit?usp=sharing
+
+
