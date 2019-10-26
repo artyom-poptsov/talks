@@ -1,0 +1,2 @@
+* State Machine Compiler
+  http://smc.sourceforge.net/
