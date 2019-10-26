@@ -1,2 +1,8 @@
 * State Machine Compiler
   http://smc.sourceforge.net/
+
+* Просмотр .dot файлов
+#+BEGIN_EXAMPLE
+$ apt install xview
+$ xdot Turnstile_sm.dot
+#+END_EXAMPLE
