@@ -7,13 +7,13 @@
 
 %%
 Locked{
-  coin Unlocked { unlock(); }
-  pass nil      { alarm(); }
+  coin Unlocked { unlock();   }
+  pass nil      { alarm();    }
 }
 
 Unlocked{
-  pass Locked{ lock(); }
-  coin nil { thankyou(); }
+  pass Locked   { lock();     }
+  coin nil      { thankyou(); }
 }
 
 %%
