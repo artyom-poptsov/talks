@@ -1,0 +1,3 @@
+* D-Bus Examples
+
+This work is partly based upon [[https://github.com/drahnr/gdbus-demo/tree/master/src/gdbus][gdbus-demo]].
